@@ -1442,7 +1442,7 @@
           <span id="todayCallCounter" class="call-counter-pill">Call #1 Today</span>
         </div>
 
-        <form id="doctorCallForm" autocomplete="off" onsubmit="event.preventDefault(); submitDoctorCall();">
+        <form id="doctorCallForm" autocomplete="off">
           
           <!-- Executive Name Field (Auto-filled from localStorage, editable) -->
           <div class="form-group">
@@ -1832,6 +1832,8 @@
       const discussionNotes = document.getElementById('discussionNotes');
       const notMetRemarks = document.getElementById('notMetRemarks');
       const todayCallCounter = document.getElementById('todayCallCounter');
+      const doctorCallForm = document.getElementById('doctorCallForm');
+      const submitCallBtn = document.getElementById('submitCallBtn');
 
       const timelineList = document.getElementById('timelineList');
       const metricTotalCalls = document.getElementById('metricTotalCalls');
@@ -2229,6 +2231,8 @@
         }
 
         try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 6000); // 6s network timeout
           await fetch(settings.webhookUrl, {
             method: 'POST',
             mode: 'no-cors',
@@ -2236,11 +2240,13 @@
             headers: {
               'Content-Type': 'application/json'
             },
-            body: JSON.stringify(payload)
+            body: JSON.stringify(payload),
+            signal: controller.signal
           });
+          clearTimeout(timeoutId);
           return { success: true, localOnly: false };
         } catch (err) {
-          console.error('Webhook post error:', err);
+          console.warn('Webhook post notice:', err);
           return { success: false, error: err.toString() };
         }
       }
@@ -2330,67 +2336,77 @@
           synced: false
         };
 
-        // Disable submit button temporarily
-        const submitBtn = document.getElementById('submitCallBtn');
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = `
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="animate-spin">
-            <circle cx="12" cy="12" r="10" stroke-opacity="0.25"/>
-            <path d="M12 2a10 10 0 0 1 10 10" />
-          </svg>
-          <span>Saving Doctor Call & Time Logs...</span>
-        `;
-
-        // Post to Webhook
-        const syncResult = await postPayloadToWebhook(record);
-        record.synced = syncResult.success && !syncResult.localOnly;
-
-        // Reset submit button
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = `
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="22" y1="2" x2="11" y2="13"/>
-            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-          </svg>
-          <span>Submit Doctor Call with Time Logs</span>
-        `;
-
-        // Reset active session if matched
-        if (activeVisit.isActive) {
-          activeVisit.isActive = false;
-          saveActiveVisit();
+        const submitBtn = submitCallBtn || document.getElementById('submitCallBtn');
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = `
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="animate-spin">
+              <circle cx="12" cy="12" r="10" stroke-opacity="0.25"/>
+              <path d="M12 2a10 10 0 0 1 10 10" />
+            </svg>
+            <span>Saving Doctor Call & Time Logs...</span>
+          `;
         }
 
-        // Save locally
-        activities.unshift(record);
-        saveActivities();
+        try {
+          // Post to Webhook
+          const syncResult = await postPayloadToWebhook(record);
+          record.synced = syncResult.success && !syncResult.localOnly;
 
-        // Clear doctor-specific fields while preserving rep name
-        doctorNameInput.value = '';
-        facilityNameInput.value = '';
-        discussionNotes.value = '';
-        notMetRemarks.value = '';
-        selectedPillTags.clear();
-        document.querySelectorAll('#discussionPillsWrap .disc-chip').forEach(c => c.classList.remove('selected'));
+          // Reset active session if matched
+          if (activeVisit.isActive) {
+            activeVisit.isActive = false;
+            saveActiveVisit();
+          }
 
-        // Reset In/Out time fields
-        reachedTimeInput.value = '';
-        leftTimeInput.value = '';
-        updateDurationDisplay();
+          // Save locally
+          activities.unshift(record);
+          saveActivities();
 
-        // Reset to Met Doctor default
-        setMetStatus('Met Doctor');
+          // Clear doctor-specific fields while preserving rep name
+          doctorNameInput.value = '';
+          facilityNameInput.value = '';
+          discussionNotes.value = '';
+          notMetRemarks.value = '';
+          selectedPillTags.clear();
+          document.querySelectorAll('#discussionPillsWrap .disc-chip').forEach(c => c.classList.remove('selected'));
 
-        updateUI();
+          // Reset In/Out time fields
+          reachedTimeInput.value = '';
+          leftTimeInput.value = '';
+          updateDurationDisplay();
 
-        if (syncResult.localOnly) {
-          showToast(`Doctor Call for "${doctorName}" saved locally!`, 'success');
-        } else if (syncResult.success) {
-          showToast(`Doctor Call for "${doctorName}" synced to Sheet!`, 'success');
-        } else {
-          showToast(`Doctor Call saved locally (offline)`, 'normal');
+          // Reset to Met Doctor default
+          setMetStatus('Met Doctor');
+
+          updateUI();
+
+          if (syncResult.localOnly) {
+            showToast(`Doctor Call for "${doctorName}" saved locally!`, 'success');
+          } else if (syncResult.success) {
+            showToast(`Doctor Call for "${doctorName}" synced to Sheet!`, 'success');
+          } else {
+            showToast(`Doctor Call saved locally (offline)`, 'normal');
+          }
+        } catch (err) {
+          console.error('Submit error:', err);
+          showToast('Saved locally: ' + (err.message || err), 'normal');
+        } finally {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = `
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"/>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+              </svg>
+              <span>Submit Doctor Call with Time Logs</span>
+            `;
+          }
         }
       }
+
+      // Expose globally for any inline triggers
+      window.submitDoctorCall = submitDoctorCall;
 
       // Met Status Toggle Switch
       function setMetStatus(status) {
@@ -2790,6 +2806,24 @@
             showToast('Please select and copy code manually', 'normal');
           }
         });
+
+        // Doctor Call Form Submit & Button Click
+        if (doctorCallForm) {
+          doctorCallForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            submitDoctorCall();
+          });
+        }
+        if (submitCallBtn) {
+          submitCallBtn.addEventListener('click', (e) => {
+            if (doctorCallForm && typeof doctorCallForm.checkValidity === 'function' && !doctorCallForm.checkValidity()) {
+              doctorCallForm.reportValidity();
+              return;
+            }
+            e.preventDefault();
+            submitDoctorCall();
+          });
+        }
 
         // Export and Clear History
         exportDcrBtn.addEventListener('click', exportDcrCsv);
