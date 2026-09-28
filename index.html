@@ -136,7 +136,41 @@
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
+    }
+
+    /* Field Executive Name Chip near Settings */
+    .header-rep-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 10px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      border-radius: var(--radius-pill);
+      color: #ffffff;
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+      max-width: 140px;
+      transition: all 0.15s ease;
+      touch-action: manipulation;
+    }
+
+    .header-rep-chip:hover {
+      background: rgba(255, 255, 255, 0.22);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .header-rep-chip:active {
+      transform: scale(0.96);
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .header-rep-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     /* Sync Status Pill */
@@ -366,25 +400,27 @@
       border-color: #86efac;
     }
 
-    .clinic-buttons-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+    .clinic-arrival-wrapper {
+      display: flex;
+      flex-direction: column;
       gap: 10px;
     }
 
     .time-stamp-btn {
       position: relative;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
-      justify-content: center;
-      padding: 14px 10px;
+      justify-content: flex-start;
+      padding: 12px 14px;
+      gap: 12px;
       border-radius: 10px;
       cursor: pointer;
-      text-align: center;
+      text-align: left;
       font-family: inherit;
       transition: all 0.12s ease;
       touch-action: manipulation;
+      width: 100%;
     }
 
     .time-stamp-btn:active {
@@ -403,26 +439,20 @@
       box-shadow: 0 1px 0 #15803d;
     }
 
-    /* Left Clinic Button - Amber / Navy High Contrast */
-    .btn-left {
-      background: #fffbeb;
-      border: 2.5px solid #b45309;
-      color: #78350f;
-      box-shadow: 0 3px 0 #b45309;
-    }
-
-    .btn-left:active {
-      box-shadow: 0 1px 0 #b45309;
+    .btn-reached.arrived-state {
+      background: #dcfce7;
+      border-color: #166534;
+      box-shadow: 0 2px 0 #166534;
     }
 
     .btn-stamp-icon {
-      width: 28px;
-      height: 28px;
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 4px;
     }
 
     .btn-reached .btn-stamp-icon {
@@ -430,9 +460,10 @@
       color: #ffffff;
     }
 
-    .btn-left .btn-stamp-icon {
-      background: #b45309;
-      color: #ffffff;
+    .btn-stamp-text {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }
 
     .time-stamp-title {
@@ -443,10 +474,22 @@
     }
 
     .time-stamp-sub {
-      font-size: 0.68rem;
+      font-size: 0.72rem;
       font-weight: 600;
       opacity: 0.85;
       margin-top: 2px;
+    }
+
+    .submit-sub-hint {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--slate-500);
+      margin-top: 8px;
+      text-align: center;
     }
 
     /* Active Clinic Visit Banner */
@@ -456,15 +499,60 @@
       background: #ecfdf5;
       border: 1.5px solid #86efac;
       border-radius: 8px;
-      padding: 8px 10px;
+      padding: 8px 12px;
       font-size: 0.78rem;
       color: #065f46;
       justify-content: space-between;
       align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
     }
 
     .active-session-banner.show {
       display: flex;
+    }
+
+    .active-session-info {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .active-session-docs-badge {
+      display: inline-block;
+      margin-left: 4px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: #10b981;
+      color: #ffffff;
+      font-size: 0.68rem;
+      font-weight: 800;
+    }
+
+    .active-session-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+    }
+
+    .end-visit-inline-btn {
+      background: #ffffff;
+      border: 1.5px solid #059669;
+      color: #047857;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      touch-action: manipulation;
+      transition: all 0.1s ease;
+    }
+
+    .end-visit-inline-btn:active {
+      background: #ecfdf5;
+      transform: scale(0.96);
     }
 
     /* Doctor Visit Form Card */
@@ -700,15 +788,25 @@
       box-shadow: 0 3px 0 #7f1d1d;
     }
 
-    /* Location Type Pills */
+    /* Clinic Location & Premises Details (Shifted below arrival log) */
+    .clinic-location-details {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1.5px dashed #cbd5e1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
     .location-pills {
       display: flex;
+      flex-wrap: wrap;
       gap: 6px;
-      margin-bottom: 10px;
     }
 
     .loc-pill {
       flex: 1;
+      min-width: 60px;
       padding: 8px 6px;
       border: 2px solid var(--slate-300);
       background: var(--slate-50);
@@ -718,13 +816,15 @@
       color: var(--slate-700);
       text-align: center;
       cursor: pointer;
-      transition: all 0.15s ease;
+      transition: all 0.12s ease;
+      touch-action: manipulation;
     }
 
     .loc-pill.active {
       background: var(--slate-900);
       border-color: var(--slate-900);
       color: #ffffff;
+      box-shadow: 0 2px 0 var(--slate-700);
     }
 
     /* Discussion Quick Pills: Routine Visit, IC Clearance, Good Feedback, Bad Feedback */
@@ -838,16 +938,23 @@
       color: white;
     }
 
-    /* Submit Call Button */
+    /* Submit Call Button Group (Multi-Doctor in same Clinic vs Single Doctor) */
+    .submit-actions-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
     .submit-btn {
       width: 100%;
-      margin-top: 14px;
-      padding: 14px 16px;
+      margin-top: 0;
+      padding: 13px 16px;
       background: #ea580c;
       border: 2.5px solid #c2410c;
       border-radius: var(--radius);
       color: #ffffff;
-      font-size: 0.98rem;
+      font-size: 0.96rem;
       font-weight: 800;
       letter-spacing: -0.01em;
       cursor: pointer;
@@ -871,6 +978,40 @@
       box-shadow: none;
       cursor: not-allowed;
       opacity: 0.7;
+    }
+
+    /* Secondary Action: "Submit & Add Another Doctor Here" */
+    .submit-secondary-btn {
+      width: 100%;
+      padding: 12px 14px;
+      background: #f0fdf4;
+      border: 2px solid #16a34a;
+      border-radius: var(--radius);
+      color: #15803d;
+      font-size: 0.92rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 3px 0 #15803d;
+      transition: all 0.12s ease;
+      touch-action: manipulation;
+    }
+
+    .submit-secondary-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #15803d;
+    }
+
+    .submit-secondary-btn:disabled {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+      color: #94a3b8;
+      box-shadow: none;
+      cursor: not-allowed;
     }
 
     /* Activity Timeline Section (Only Doctor Calls & Clinic Time Logs) */
@@ -1328,6 +1469,15 @@
       </div>
 
       <div class="header-actions">
+        <!-- Field Executive Name Chip (Near Settings) -->
+        <button type="button" id="headerRepChip" class="header-rep-chip" title="Field Executive (Tap to change in Settings)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <span id="headerRepDisplay" class="header-rep-name">Field Executive</span>
+        </button>
+
         <!-- Sync Status Pill -->
         <button id="syncStatusPill" class="sync-pill local" title="Click to view sync status & settings">
           <span class="status-dot pulse"></span>
@@ -1375,7 +1525,7 @@
         </button>
       </section>
 
-      <!-- Clinic Visit Time Tracking Card (Reached & Left Clinic) -->
+      <!-- Clinic Visit Time Tracking Card (Reached Clinic) -->
       <section class="clinic-timer-card" aria-label="Clinic Time Logs">
         <div class="timer-card-header">
           <div class="timer-card-title">
@@ -1383,47 +1533,61 @@
               <circle cx="12" cy="12" r="10" />
               <polyline points="12 6 12 12 16 14" />
             </svg>
-            <span>Clinic Time Logs</span>
+            <span>Clinic Arrival Log</span>
           </div>
           <span id="activeVisitPill" class="active-visit-pill">Ready for Next Call</span>
         </div>
 
-        <div class="clinic-buttons-grid">
-          <!-- Step 1: Reached Clinic Button (1-tap arrival stamp) -->
+        <div class="clinic-arrival-wrapper">
+          <!-- Big 1-tap arrival stamp button -->
           <button id="quickReachedBtn" class="time-stamp-btn btn-reached" type="button" title="1-Tap: Stamp arrival time at doctor clinic">
             <div class="btn-stamp-icon">
               <!-- Map pin arrival -->
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                 <circle cx="12" cy="10" r="3"/>
               </svg>
             </div>
-            <span class="time-stamp-title">1. Reached Clinic</span>
-            <span id="quickReachedSub" class="time-stamp-sub">Tap upon arrival</span>
-          </button>
-
-          <!-- Step 2: Left Clinic Button (1-tap departure stamp) -->
-          <button id="quickLeftBtn" class="time-stamp-btn btn-left" type="button" title="1-Tap: Stamp departure and complete call">
-            <div class="btn-stamp-icon">
-              <!-- Exit / Departure icon -->
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
-                <polyline points="16 17 21 12 16 7"/>
-                <line x1="21" y1="12" x2="9" y2="12"/>
-              </svg>
+            <div class="btn-stamp-text">
+              <span id="quickReachedTitle" class="time-stamp-title">📍 Reached Doctor Clinic</span>
+              <span id="quickReachedSub" class="time-stamp-sub">Tap once upon arrival • Submitting call auto-logs departure</span>
             </div>
-            <span class="time-stamp-title">2. Left Clinic</span>
-            <span id="quickLeftSub" class="time-stamp-sub">Tap when exiting</span>
           </button>
         </div>
 
         <!-- Active Session Status Banner -->
         <div id="activeSessionBanner" class="active-session-banner">
-          <div>
-            <strong>📍 Currently at Clinic:</strong>
+          <div class="active-session-info">
+            <strong>📍 At Clinic:</strong>
             <span id="activeSessionDetails">Reached at --:--</span>
+            <span id="activeSessionDocsCount" class="active-session-docs-badge" style="display: none;">0 Doctors Logged</span>
           </div>
-          <span id="activeSessionElapsed" style="font-weight: 800; color: #047857;">0m elapsed</span>
+          <div class="active-session-actions">
+            <span id="activeSessionElapsed" style="font-weight: 800; color: #047857;">0m elapsed</span>
+            <button type="button" id="endVisitBtn" class="end-visit-inline-btn" title="Conclude clinic visit without logging another doctor">Depart Clinic</button>
+          </div>
+        </div>
+
+        <!-- Visit Location Details: Shifted right below arrival log -->
+        <div class="clinic-location-details">
+          <!-- Visit Location Type -->
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" style="font-size: 0.78rem; margin-bottom: 5px;">Visit Location Type</label>
+            <div class="location-pills">
+              <button type="button" class="loc-pill" data-loc="Home">Home</button>
+              <button type="button" class="loc-pill active" data-loc="Clinic">Clinic</button>
+              <button type="button" class="loc-pill" data-loc="Hospital">Hospital</button>
+            </div>
+          </div>
+
+          <!-- Hospital / Clinic Name -->
+          <div class="form-group" style="margin-bottom: 0;">
+            <div class="form-label-row">
+              <label class="form-label" for="facilityNameInput" style="font-size: 0.78rem;">Clinic / Hospital Name</label>
+              <span class="form-sublabel" style="font-size: 0.68rem;">Retained across doctors here</span>
+            </div>
+            <input type="text" id="facilityNameInput" class="text-input" placeholder="e.g. City Care Polyclinic / Apollo Hospital" />
+          </div>
         </div>
       </section>
 
@@ -1444,45 +1608,13 @@
 
         <form id="doctorCallForm" autocomplete="off">
           
-          <!-- Executive Name Field (Auto-filled from localStorage, editable) -->
-          <div class="form-group">
-            <div class="form-label-row">
-              <label class="form-label" for="repNameInput">Field Executive Name</label>
-              <span class="form-sublabel">Configured in Settings</span>
-            </div>
-            <input type="text" id="repNameInput" class="text-input" placeholder="e.g. Rahul Sharma" required />
-          </div>
+          <!-- Hidden Executive Name Field (Managed via Settings & Header Chip) -->
+          <input type="hidden" id="repNameInput" value="Field Executive" />
 
           <!-- Doctor Name Field -->
           <div class="form-group">
             <label class="form-label" for="doctorNameInput">Doctor Name *</label>
             <input type="text" id="doctorNameInput" class="text-input" placeholder="e.g. Dr. R. K. Sharma, MD" required />
-          </div>
-
-          <!-- Automatic 2-Tap Time Log Status Strip (No duplicate manual boxes) -->
-          <div class="clinic-time-summary-strip" id="clinicTimeSummaryBox">
-            <div class="time-summary-content">
-              <span class="time-summary-label">Clinic Visit Time</span>
-              <div class="time-summary-badges">
-                <span>🟢 In: <strong id="summaryReachedTime">Not stamped</strong></span>
-                <span style="color: var(--slate-400);">➔</span>
-                <span>🔴 Out: <strong id="summaryLeftTime">Pending</strong></span>
-                <span id="summaryDurationBadge" class="time-summary-duration">0 mins</span>
-              </div>
-            </div>
-            <button type="button" id="adjustTimeToggleBtn" class="edit-time-link" title="Manually adjust times if required">Adjust</button>
-          </div>
-
-          <!-- Collapsible Drawer for Manual Adjustments (Hidden by default) -->
-          <div id="manualTimeDrawer" class="manual-time-drawer">
-            <div class="time-col">
-              <span class="time-col-label">Reached Time (In)</span>
-              <input type="time" id="reachedTimeInput" class="time-input-field" />
-            </div>
-            <div class="time-col">
-              <span class="time-col-label">Left Time (Out)</span>
-              <input type="time" id="leftTimeInput" class="time-input-field" />
-            </div>
           </div>
 
           <!-- Doctor Met Status: Segmented Toggle with 2 Large Pills -->
@@ -1509,22 +1641,6 @@
           <!-- Dynamic Container 1: When "Met Doctor" is Selected -->
           <div id="metDoctorFields">
             
-            <!-- Visit Location Type: Hospital | Clinic | Home -->
-            <div class="form-group">
-              <label class="form-label">Visit Location Type</label>
-              <div class="location-pills">
-                <button type="button" class="loc-pill active" data-loc="Clinic">Clinic</button>
-                <button type="button" class="loc-pill" data-loc="Hospital">Hospital</button>
-                <button type="button" class="loc-pill" data-loc="Home">Home</button>
-              </div>
-            </div>
-
-            <!-- Hospital / Clinic Name -->
-            <div class="form-group">
-              <label class="form-label" for="facilityNameInput">Hospital / Clinic Name</label>
-              <input type="text" id="facilityNameInput" class="text-input" placeholder="e.g. City Care Clinic / Apollo Hospital" />
-            </div>
-
             <!-- Discussion Notes & The 4 User Specified Quick Pills -->
             <div class="form-group">
               <div class="form-label-row">
@@ -1591,14 +1707,60 @@
             </div>
           </div>
 
-          <!-- Submit Button -->
-          <button type="submit" id="submitCallBtn" class="submit-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="22" y1="2" x2="11" y2="13"/>
-              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          <!-- Submit Actions (Single Doctor vs Multi-Doctor Polyclinic) -->
+          <div class="submit-actions-group">
+            <!-- Secondary Action: Save Doctor & Stay at Clinic to Detail Another Doctor -->
+            <button type="button" id="submitAndAddAnotherBtn" class="submit-secondary-btn" title="Save this doctor call and stay at this clinic to log another doctor">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="16" />
+                <line x1="8" y1="12" x2="16" y2="12" />
+              </svg>
+              <span>Submit & Add Another Doctor Here</span>
+            </button>
+
+            <!-- Primary Action: Submit Doctor Call & Conclude Clinic Visit -->
+            <button type="button" id="submitCallBtn" class="submit-btn" title="Save this doctor call and conclude this clinic visit">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              <span>Submit Call & Conclude Clinic Visit</span>
+            </button>
+          </div>
+          <div class="submit-sub-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
             </svg>
-            <span>Submit Doctor Call with Time Logs</span>
-          </button>
+            <span>"Conclude Visit" auto-logs departure time • "Add Another" keeps clinic arrival & timer active</span>
+          </div>
+
+          <!-- Clinic Visit Time Status Strip: Shifted below the Conclude Clinic Visit Button -->
+          <div class="clinic-time-summary-strip" id="clinicTimeSummaryBox" style="margin-top: 14px; margin-bottom: 0;">
+            <div class="time-summary-content">
+              <span class="time-summary-label">Clinic Visit Time</span>
+              <div class="time-summary-badges">
+                <span>🟢 In: <strong id="summaryReachedTime">Not stamped</strong></span>
+                <span style="color: var(--slate-400);">➔</span>
+                <span>🔴 Out: <strong id="summaryLeftTime">Pending</strong></span>
+                <span id="summaryDurationBadge" class="time-summary-duration">0 mins</span>
+              </div>
+            </div>
+            <button type="button" id="adjustTimeToggleBtn" class="edit-time-link" title="Manually adjust times if required">Adjust</button>
+          </div>
+
+          <!-- Collapsible Drawer for Manual Adjustments (Hidden by default) -->
+          <div id="manualTimeDrawer" class="manual-time-drawer">
+            <div class="time-col">
+              <span class="time-col-label">Reached Time (In)</span>
+              <input type="time" id="reachedTimeInput" class="time-input-field" />
+            </div>
+            <div class="time-col">
+              <span class="time-col-label">Left Time (Out)</span>
+              <input type="time" id="leftTimeInput" class="time-input-field" />
+            </div>
+          </div>
         </form>
       </section>
 
@@ -1755,7 +1917,7 @@
     (function () {
       'use strict';
 
-      // Storage Keys
+      // Storage Keys (Soorya Diagnostics)
       const STORAGE_KEYS = {
         ACTIVITIES: 'soorya_activities_v2',
         SETTINGS: 'soorya_settings_v2',
@@ -1777,7 +1939,7 @@
       let settings = {
         webhookUrl: '',
         repName: 'Field Executive',
-        repId: 'SD-101'
+        repId: 'CD-101'
       };
 
       // Active clinic visit session (when they tap "Reached Clinic")
@@ -1786,7 +1948,8 @@
         reachedTimestamp: null,
         reachedTimeStr: null,
         reachedCoords: null,
-        doctorName: ''
+        facilityName: '',
+        doctorCount: 0
       };
 
       // Met / Not Met Form State
@@ -1807,14 +1970,17 @@
 
       const activeVisitPill = document.getElementById('activeVisitPill');
       const quickReachedBtn = document.getElementById('quickReachedBtn');
-      const quickLeftBtn = document.getElementById('quickLeftBtn');
+      const quickReachedTitle = document.getElementById('quickReachedTitle');
       const quickReachedSub = document.getElementById('quickReachedSub');
-      const quickLeftSub = document.getElementById('quickLeftSub');
       const activeSessionBanner = document.getElementById('activeSessionBanner');
       const activeSessionDetails = document.getElementById('activeSessionDetails');
+      const activeSessionDocsCount = document.getElementById('activeSessionDocsCount');
       const activeSessionElapsed = document.getElementById('activeSessionElapsed');
+      const endVisitBtn = document.getElementById('endVisitBtn');
 
       const repNameInput = document.getElementById('repNameInput');
+      const headerRepChip = document.getElementById('headerRepChip');
+      const headerRepDisplay = document.getElementById('headerRepDisplay');
       const doctorNameInput = document.getElementById('doctorNameInput');
       const reachedTimeInput = document.getElementById('reachedTimeInput');
       const leftTimeInput = document.getElementById('leftTimeInput');
@@ -1833,6 +1999,7 @@
       const notMetRemarks = document.getElementById('notMetRemarks');
       const todayCallCounter = document.getElementById('todayCallCounter');
       const doctorCallForm = document.getElementById('doctorCallForm');
+      const submitAndAddAnotherBtn = document.getElementById('submitAndAddAnotherBtn');
       const submitCallBtn = document.getElementById('submitCallBtn');
 
       const timelineList = document.getElementById('timelineList');
@@ -1976,14 +2143,15 @@
       // Load Settings from LocalStorage
       function loadSettings() {
         try {
-          const stored = localStorage.getItem(STORAGE_KEYS.SETTINGS);
+          const stored = localStorage.getItem(STORAGE_KEYS.SETTINGS) || localStorage.getItem('clariti_settings_v2') || localStorage.getItem('soorya_settings_v2');
           if (stored) {
             settings = { ...settings, ...JSON.parse(stored) };
           }
         } catch (e) {
           console.warn('Error reading settings', e);
         }
-        repNameInput.value = settings.repName || 'Field Executive';
+        if (repNameInput) repNameInput.value = settings.repName || 'Field Executive';
+        if (headerRepDisplay) headerRepDisplay.textContent = settings.repName || 'Field Executive';
         webhookUrlInput.value = settings.webhookUrl || '';
         settingsRepName.value = settings.repName || 'Field Executive';
         settingsRepId.value = settings.repId || 'SD-101';
@@ -1994,7 +2162,8 @@
         settings.webhookUrl = webhookUrlInput.value.trim();
         settings.repName = settingsRepName.value.trim() || 'Field Executive';
         settings.repId = settingsRepId.value.trim();
-        repNameInput.value = settings.repName;
+        if (repNameInput) repNameInput.value = settings.repName;
+        if (headerRepDisplay) headerRepDisplay.textContent = settings.repName;
 
         try {
           localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(settings));
@@ -2023,7 +2192,7 @@
       // Load Activities
       function loadActivities() {
         try {
-          const stored = localStorage.getItem(STORAGE_KEYS.ACTIVITIES);
+          const stored = localStorage.getItem(STORAGE_KEYS.ACTIVITIES) || localStorage.getItem('clariti_activities_v2') || localStorage.getItem('soorya_activities_v2');
           if (stored) {
             activities = JSON.parse(stored);
           } else {
@@ -2046,14 +2215,27 @@
       // Active Clinic Visit State Management
       function loadActiveVisit() {
         try {
-          const stored = localStorage.getItem(STORAGE_KEYS.ACTIVE_VISIT);
+          const stored = localStorage.getItem(STORAGE_KEYS.ACTIVE_VISIT) || localStorage.getItem('clariti_active_visit_v2') || localStorage.getItem('soorya_active_visit_v2');
           if (stored) {
             const parsed = JSON.parse(stored);
             const todayStr = new Date().toDateString();
             if (parsed.date === todayStr && parsed.isActive) {
-              activeVisit = parsed;
+              activeVisit = {
+                isActive: true,
+                reachedTimestamp: parsed.reachedTimestamp || Date.now(),
+                reachedTimeStr: parsed.reachedTimeStr || '',
+                reachedCoords: parsed.reachedCoords || null,
+                facilityName: parsed.facilityName || '',
+                doctorCount: parsed.doctorCount || 0
+              };
+              if (activeVisit.reachedTimeStr && !reachedTimeInput.value) {
+                reachedTimeInput.value = activeVisit.reachedTimeStr;
+              }
+              if (activeVisit.facilityName && !facilityNameInput.value) {
+                facilityNameInput.value = activeVisit.facilityName;
+              }
             } else {
-              activeVisit = { isActive: false, reachedTimestamp: null, reachedTimeStr: null, reachedCoords: null, doctorName: '' };
+              activeVisit = { isActive: false, reachedTimestamp: null, reachedTimeStr: null, reachedCoords: null, facilityName: '', doctorCount: 0 };
             }
           }
         } catch (e) {
@@ -2076,17 +2258,34 @@
         if (activeVisit.isActive && activeVisit.reachedTimeStr) {
           activeVisitPill.textContent = `At Clinic (${format12h(activeVisit.reachedTimeStr)})`;
           activeVisitPill.className = 'active-visit-pill active';
-          quickReachedSub.textContent = `In: ${format12h(activeVisit.reachedTimeStr)}`;
-          quickLeftSub.textContent = 'Conclude & Stamp Out';
+          if (quickReachedBtn) quickReachedBtn.classList.add('arrived-state');
+          if (quickReachedTitle) quickReachedTitle.textContent = `✓ At Clinic (In: ${format12h(activeVisit.reachedTimeStr)})`;
+          
+          const count = activeVisit.doctorCount || 0;
+          if (quickReachedSub) {
+            quickReachedSub.textContent = count > 0 
+              ? `${count} doctor${count > 1 ? 's' : ''} logged here • Add another or conclude visit below`
+              : 'Arrival locked • Enter doctor details & submit below';
+          }
 
           activeSessionBanner.className = 'active-session-banner show';
           activeSessionDetails.textContent = `Reached at ${format12h(activeVisit.reachedTimeStr)}`;
+          if (activeSessionDocsCount) {
+            if (count > 0) {
+              activeSessionDocsCount.style.display = 'inline-block';
+              activeSessionDocsCount.textContent = `${count} Doc${count > 1 ? 's' : ''} Logged`;
+            } else {
+              activeSessionDocsCount.style.display = 'none';
+            }
+          }
           updateActiveSessionTicker();
         } else {
           activeVisitPill.textContent = 'Ready for Next Call';
           activeVisitPill.className = 'active-visit-pill';
-          quickReachedSub.textContent = 'Stamp In-Time';
-          quickLeftSub.textContent = 'Stamp Out-Time';
+          if (quickReachedBtn) quickReachedBtn.classList.remove('arrived-state');
+          if (quickReachedTitle) quickReachedTitle.textContent = '📍 Reached Doctor Clinic';
+          if (quickReachedSub) quickReachedSub.textContent = 'Tap once upon arrival • Submitting call auto-logs departure';
+          if (activeSessionDocsCount) activeSessionDocsCount.style.display = 'none';
           activeSessionBanner.className = 'active-session-banner';
         }
       }
@@ -2172,13 +2371,15 @@
         gpsCoordsDisplay.textContent = `${currentGps.lat.toFixed(4)}° N, ${currentGps.lng.toFixed(4)}° E (Est)`;
       }
 
-      // Quick 1-Tap "1. Reached Clinic" action
+      // Quick 1-Tap "Reached Clinic" action
       function handleQuickReached() {
         vibrate(50);
         const nowTimeStr = getNowTimeStr();
         activeVisit.isActive = true;
         activeVisit.reachedTimestamp = Date.now();
         activeVisit.reachedTimeStr = nowTimeStr;
+        activeVisit.facilityName = facilityNameInput.value.trim();
+        activeVisit.doctorCount = 0;
         activeVisit.reachedCoords = {
           lat: currentGps.lat || 13.0827,
           lng: currentGps.lng || 80.2707,
@@ -2191,37 +2392,28 @@
         leftTimeInput.value = '';
         updateDurationDisplay();
 
-        showToast(`1. Reached Clinic marked at ${format12h(nowTimeStr)}! In-time locked.`, 'success');
+        showToast(`📍 Reached Clinic logged at ${format12h(nowTimeStr)}! In-time locked.`, 'success');
       }
 
-      // Quick 1-Tap "2. Left Clinic" action
-      function handleQuickLeft() {
-        vibrate(50);
-        const nowTimeStr = getNowTimeStr();
-        leftTimeInput.value = nowTimeStr;
+      // Inline "Depart Clinic" button in active banner
+      function handleEndVisit() {
+        if (!activeVisit.isActive) return;
+        vibrate(30);
+        const departTime = getNowTimeStr();
+        const durationMins = calculateDurationMins(activeVisit.reachedTimeStr, departTime);
+        const count = activeVisit.doctorCount || 0;
 
-        if (activeVisit.isActive && activeVisit.reachedTimeStr) {
-          reachedTimeInput.value = activeVisit.reachedTimeStr;
-          const diff = calculateDurationMins(activeVisit.reachedTimeStr, nowTimeStr);
-          updateDurationDisplay();
+        activeVisit.isActive = false;
+        activeVisit.doctorCount = 0;
+        activeVisit.facilityName = '';
+        saveActiveVisit();
 
-          activeVisit.isActive = false;
-          saveActiveVisit();
+        reachedTimeInput.value = '';
+        leftTimeInput.value = '';
+        updateDurationDisplay();
 
-          showToast(`2. Left Clinic marked at ${format12h(nowTimeStr)} (${diff}m spent)! Fill details below.`, 'success');
-        } else {
-          // If they didn't tap Reached Clinic earlier upon arrival, default arrival to 15m ago
-          if (!reachedTimeInput.value) {
-            const now = new Date();
-            const past = new Date(now.getTime() - 15 * 60000);
-            reachedTimeInput.value = `${String(past.getHours()).padStart(2, '0')}:${String(past.getMinutes()).padStart(2, '0')}`;
-          }
-          updateDurationDisplay();
-          showToast(`2. Left Clinic marked at ${format12h(nowTimeStr)}. Ready to submit call.`, 'normal');
-        }
-
-        // Smooth scroll to doctor name input
-        doctorNameInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const countMsg = count > 0 ? ` (${count} doctor${count > 1 ? 's' : ''} logged)` : '';
+        showToast(`Clinic visit concluded at ${format12h(departTime)} (${durationMins}m spent)${countMsg}!`, 'success');
       }
 
       // Network Post with no-cors support for Google Apps Script Web App
@@ -2252,7 +2444,7 @@
       }
 
       // Submit Doctor Call with Time Logs (In/Out) & Discussion Quick Pills
-      async function submitDoctorCall() {
+      async function submitDoctorCall(concludeClinic = true) {
         vibrate(50);
         const doctorName = doctorNameInput.value.trim();
         const repName = repNameInput.value.trim() || settings.repName || 'Field Executive';
@@ -2274,8 +2466,8 @@
           }
         }
 
-        // Auto-assign outTime if not stamped yet
-        if (!leftTimeInput.value) {
+        // If staying at clinic for another doctor, or if leftTime not stamped, outTime is current moment
+        if (!leftTimeInput.value || !concludeClinic) {
           leftTimeInput.value = getNowTimeStr();
         }
 
@@ -2295,12 +2487,15 @@
         const mapsUrl = `https://www.google.com/maps?q=${lat},${lng}`;
         const now = new Date();
 
-        let facility = '';
+        const facility = facilityNameInput.value.trim() || activeVisit.facilityName || '';
+        if (facility) {
+          activeVisit.facilityName = facility;
+        }
+
         let notesOrPitch = '';
         let reasonNotMet = '';
 
         if (selectedMetStatus === 'Met Doctor') {
-          facility = facilityNameInput.value.trim();
           notesOrPitch = discussionNotes.value.trim();
         } else {
           reasonNotMet = selectedReason;
@@ -2324,7 +2519,7 @@
           rep_id: settings.repId,
           doctor_name: doctorName,
           met_status: selectedMetStatus, // "Met Doctor" | "Doctor Not Met"
-          location_type: selectedMetStatus === 'Met Doctor' ? selectedLocationType : 'N/A',
+          location_type: selectedLocationType || 'Clinic',
           facility_name: facility,
           notes_or_pitch: notesOrPitch,
           discussion_pills: Array.from(selectedPillTags),
@@ -2336,15 +2531,16 @@
           synced: false
         };
 
-        const submitBtn = submitCallBtn || document.getElementById('submitCallBtn');
-        if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.innerHTML = `
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="animate-spin">
+        const targetBtn = concludeClinic ? submitCallBtn : submitAndAddAnotherBtn;
+        const originalBtnHtml = targetBtn ? targetBtn.innerHTML : '';
+        if (targetBtn) {
+          targetBtn.disabled = true;
+          targetBtn.innerHTML = `
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="animate-spin">
               <circle cx="12" cy="12" r="10" stroke-opacity="0.25"/>
               <path d="M12 2a10 10 0 0 1 10 10" />
             </svg>
-            <span>Saving Doctor Call & Time Logs...</span>
+            <span>Saving Doctor Call...</span>
           `;
         }
 
@@ -2353,54 +2549,82 @@
           const syncResult = await postPayloadToWebhook(record);
           record.synced = syncResult.success && !syncResult.localOnly;
 
-          // Reset active session if matched
-          if (activeVisit.isActive) {
-            activeVisit.isActive = false;
-            saveActiveVisit();
-          }
-
           // Save locally
           activities.unshift(record);
           saveActivities();
 
-          // Clear doctor-specific fields while preserving rep name
-          doctorNameInput.value = '';
-          facilityNameInput.value = '';
-          discussionNotes.value = '';
-          notMetRemarks.value = '';
-          selectedPillTags.clear();
-          document.querySelectorAll('#discussionPillsWrap .disc-chip').forEach(c => c.classList.remove('selected'));
+          if (concludeClinic) {
+            // Conclude Clinic Session
+            if (activeVisit.isActive) {
+              activeVisit.isActive = false;
+              activeVisit.doctorCount = 0;
+              activeVisit.facilityName = '';
+              saveActiveVisit();
+            }
 
-          // Reset In/Out time fields
-          reachedTimeInput.value = '';
-          leftTimeInput.value = '';
-          updateDurationDisplay();
+            // Clear doctor-specific and facility fields
+            doctorNameInput.value = '';
+            facilityNameInput.value = '';
+            discussionNotes.value = '';
+            notMetRemarks.value = '';
+            selectedPillTags.clear();
+            document.querySelectorAll('#discussionPillsWrap .disc-chip').forEach(c => c.classList.remove('selected'));
 
-          // Reset to Met Doctor default
-          setMetStatus('Met Doctor');
+            // Reset In/Out time fields
+            reachedTimeInput.value = '';
+            leftTimeInput.value = '';
+            updateDurationDisplay();
 
-          updateUI();
+            // Reset to Met Doctor default
+            setMetStatus('Met Doctor');
+            updateUI();
 
-          if (syncResult.localOnly) {
-            showToast(`Doctor Call for "${doctorName}" saved locally!`, 'success');
-          } else if (syncResult.success) {
-            showToast(`Doctor Call for "${doctorName}" synced to Sheet!`, 'success');
+            const durationText = durationMins !== null && durationMins > 0 ? ` (${durationMins}m visit)` : '';
+            if (syncResult.localOnly) {
+              showToast(`Call for Dr. "${doctorName}" saved & clinic visit concluded!${durationText}`, 'success');
+            } else if (syncResult.success) {
+              showToast(`Call for Dr. "${doctorName}" synced & visit concluded!${durationText}`, 'success');
+            } else {
+              showToast(`Call saved locally & visit concluded!${durationText}`, 'normal');
+            }
           } else {
-            showToast(`Doctor Call saved locally (offline)`, 'normal');
+            // Multi-Doctor: Keep clinic active!
+            if (!activeVisit.isActive) {
+              activeVisit.isActive = true;
+              activeVisit.reachedTimestamp = Date.now() - (durationMins ? durationMins * 60000 : 0);
+              activeVisit.reachedTimeStr = inTime;
+            }
+            activeVisit.doctorCount = (activeVisit.doctorCount || 0) + 1;
+            if (facility) activeVisit.facilityName = facility;
+            saveActiveVisit();
+
+            // Clear doctor-specific details only
+            doctorNameInput.value = '';
+            discussionNotes.value = '';
+            notMetRemarks.value = '';
+            selectedPillTags.clear();
+            document.querySelectorAll('#discussionPillsWrap .disc-chip').forEach(c => c.classList.remove('selected'));
+
+            // Preserve Facility Name & Arrival Time for Doctor #2
+            facilityNameInput.value = activeVisit.facilityName || facility;
+            reachedTimeInput.value = activeVisit.reachedTimeStr;
+            leftTimeInput.value = '';
+            updateDurationDisplay();
+
+            setMetStatus('Met Doctor');
+            updateUI();
+
+            showToast(`Dr. "${doctorName}" saved (#${activeVisit.doctorCount} at this clinic)! Ready for next doctor.`, 'success');
+            doctorNameInput.focus();
+            doctorNameInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
           }
         } catch (err) {
           console.error('Submit error:', err);
           showToast('Saved locally: ' + (err.message || err), 'normal');
         } finally {
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = `
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="22" y1="2" x2="11" y2="13"/>
-                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-              </svg>
-              <span>Submit Doctor Call with Time Logs</span>
-            `;
+          if (targetBtn) {
+            targetBtn.disabled = false;
+            targetBtn.innerHTML = originalBtnHtml;
           }
         }
       }
@@ -2684,9 +2908,10 @@
           showToast('Refreshing satellite GPS lock...', 'normal');
         });
 
-        // Quick Reached / Left Buttons in Top Card
-        quickReachedBtn.addEventListener('click', handleQuickReached);
-        quickLeftBtn.addEventListener('click', handleQuickLeft);
+        // Quick Reached Arrival Button in Top Card
+        if (quickReachedBtn) {
+          quickReachedBtn.addEventListener('click', handleQuickReached);
+        }
 
         // Toggle manual adjustments drawer
         adjustTimeToggleBtn.addEventListener('click', () => {
@@ -2718,6 +2943,13 @@
             selectedLocationType = this.getAttribute('data-loc');
           });
         });
+
+        // Clinic / Hospital Name Input sync
+        if (facilityNameInput) {
+          facilityNameInput.addEventListener('input', () => {
+            activeVisit.facilityName = facilityNameInput.value.trim();
+          });
+        }
 
         // Discussion Quick Pills: Routine Visit, Case List, Good Feedback, Bad Feedback
         document.querySelectorAll('#discussionPillsWrap .disc-chip').forEach(chip => {
@@ -2772,6 +3004,15 @@
         });
 
         // Settings Modal Open/Close
+        if (headerRepChip) {
+          headerRepChip.addEventListener('click', () => {
+            vibrate(25);
+            settingsModal.classList.add('show');
+            setTimeout(() => {
+              if (settingsRepName) settingsRepName.focus();
+            }, 100);
+          });
+        }
         settingsBtn.addEventListener('click', () => {
           vibrate(25);
           settingsModal.classList.add('show');
@@ -2807,21 +3048,32 @@
           }
         });
 
-        // Doctor Call Form Submit & Button Click
+        // Inline "Depart Clinic" button in active banner
+        if (endVisitBtn) {
+          endVisitBtn.addEventListener('click', handleEndVisit);
+        }
+
+        // Multi-Doctor: "Submit & Add Another Doctor Here"
+        if (submitAndAddAnotherBtn) {
+          submitAndAddAnotherBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            submitDoctorCall(false); // stay at clinic for next doctor
+          });
+        }
+
+        // Single or Final Doctor: "Submit Call & Conclude Clinic Visit"
+        if (submitCallBtn) {
+          submitCallBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            submitDoctorCall(true); // conclude clinic visit
+          });
+        }
+
+        // Form Enter Key Trigger
         if (doctorCallForm) {
           doctorCallForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            submitDoctorCall();
-          });
-        }
-        if (submitCallBtn) {
-          submitCallBtn.addEventListener('click', (e) => {
-            if (doctorCallForm && typeof doctorCallForm.checkValidity === 'function' && !doctorCallForm.checkValidity()) {
-              doctorCallForm.reportValidity();
-              return;
-            }
-            e.preventDefault();
-            submitDoctorCall();
+            submitDoctorCall(true);
           });
         }
 
