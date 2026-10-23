@@ -2247,7 +2247,249 @@
       -webkit-user-select: none;
     }
 
-    /* Pending Visits & Suggested Doctors Tabs Card */
+        /* Executive Tasks & Timeline Reminders Card Styles */
+    
+    /* Top Page Navigation Bar */
+    .top-page-nav {
+      display: flex;
+      background: #ffffff;
+      border: 1.5px solid var(--slate-200);
+      border-radius: 12px;
+      padding: 4px;
+      margin-top: 10px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      gap: 4px;
+      position: sticky;
+      top: 0;
+      z-index: 30;
+    }
+    .top-nav-tab {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 6px;
+      border-radius: 9px;
+      border: none;
+      background: transparent;
+      color: var(--slate-600);
+      font-size: 0.80rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+      touch-action: manipulation;
+    }
+    .top-nav-tab:hover {
+      background: #f8fafc;
+      color: var(--slate-900);
+    }
+    .top-nav-tab.active {
+      background: var(--brand-orange);
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(234, 88, 12, 0.28);
+    }
+    .top-nav-icon {
+      font-size: 1.05rem;
+      line-height: 1;
+    }
+    .top-nav-badge {
+      background: #ffffff;
+      color: var(--brand-orange);
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 1px 6px;
+      border-radius: 10px;
+      line-height: 1.2;
+    }
+    .top-nav-tab:not(.active) .top-nav-badge {
+      background: #e2e8f0;
+      color: var(--slate-700);
+    }
+    .app-page-view {
+      animation: fadeInPage 0.2s ease-out;
+    }
+    @keyframes fadeInPage {
+      from { opacity: 0; transform: translateY(3px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .pro-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 5px 11px;
+      border-radius: 20px;
+      border: 1px solid var(--slate-200);
+      background: #ffffff;
+      color: var(--slate-700);
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+      touch-action: manipulation;
+    }
+    .pro-pill-btn:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+    .pro-pill-btn.active {
+      background: #0284c7;
+      color: #ffffff;
+      border-color: #0284c7;
+      box-shadow: 0 2px 4px rgba(2, 132, 199, 0.25);
+    }
+    .task-cat-badge {
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.2px;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .task-cat-marketing { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+    .task-cat-procurement { background: #fdf2f8; color: #be185d; border: 1px solid #fbcfe8; }
+    .task-cat-admin { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+    .task-cat-sample { background: #faf5ff; color: #7e22ce; border: 1px solid #e9d5ff; }
+    .task-cat-doctor { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+    .task-cat-competitor { background: #fefce8; color: #a16207; border: 1px solid #fef08a; }
+    .task-cat-general { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }
+
+    .executive-tasks-card {
+      background: #ffffff;
+      border: 1.5px solid var(--slate-200);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      margin-top: 14px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+    .header-tasks-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 9px;
+      height: 28px;
+      box-sizing: border-box;
+      border-radius: var(--radius-pill);
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      background-color: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      white-space: nowrap;
+      touch-action: manipulation;
+    }
+    .header-tasks-badge {
+      background: var(--brand-orange);
+      color: #ffffff;
+      font-size: 0.64rem;
+      font-weight: 800;
+      padding: 1px 5px;
+      border-radius: 9999px;
+      min-width: 16px;
+      text-align: center;
+      line-height: 1.2;
+    }
+    .task-item-card {
+      background: #f8fafc;
+      border: 1px solid var(--slate-200);
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .task-item-card.overdue {
+      background: #fff1f2;
+      border-color: #fca5a5;
+    }
+    .task-item-card.due-today {
+      background: #fffbeb;
+      border-color: #fcd34d;
+    }
+    .task-item-card.completed {
+      background: #f0fdf4;
+      border-color: #bbf7d0;
+      opacity: 0.85;
+    }
+    .task-item-card.completed .task-title-text {
+      text-decoration: line-through;
+      color: var(--slate-500);
+    }
+    .task-priority-high {
+      background: #fee2e2;
+      color: #dc2626;
+      border: 1px solid #fca5a5;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 1px 6px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .task-priority-medium {
+      background: #fef3c7;
+      color: #d97706;
+      border: 1px solid #fde68a;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 1px 6px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .task-priority-low {
+      background: #e0f2fe;
+      color: #0284c7;
+      border: 1px solid #bae6fd;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 1px 6px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .task-due-badge {
+      font-size: 0.70rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .task-due-badge.overdue {
+      color: #dc2626;
+      font-weight: 800;
+    }
+    .task-due-badge.today {
+      color: #d97706;
+      font-weight: 800;
+    }
+    .task-due-badge.future {
+      color: var(--slate-600);
+    }
+    .task-due-badge.done {
+      color: #16a34a;
+    }
+
+    /* Advanced Settings Caution Box */
+    .advanced-caution-card {
+      background: #fff7ed;
+      border: 2px solid #ea580c;
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+/* Pending Visits & Suggested Doctors Tabs Card */
     .assistant-tabs-card {
       background: #ffffff;
       border: 1.5px solid var(--slate-200);
@@ -3189,6 +3431,8 @@
             </svg>
             <span id="headerRepDisplay" class="header-rep-name">Field Executive</span>
           </button>
+
+          
         </div>
 
         <div class="header-actions-right">
@@ -3209,6 +3453,25 @@
       </div>
     </header>
 
+    <!-- Top Navigation Bar: Multi-Page Architecture -->
+    <nav class="top-page-nav" id="mainTopNav" aria-label="Main Navigation">
+      <button type="button" class="top-nav-tab active" data-page="pageCallsView" id="navTabCalls">
+        <span class="top-nav-icon">🩺</span>
+        <span class="top-nav-text">Daily Calls</span>
+      </button>
+      <button type="button" class="top-nav-tab" data-page="pagePlanningView" id="navTabPlanning">
+        <span class="top-nav-icon">📅</span>
+        <span class="top-nav-text">Visit Planning</span>
+        <span id="navPlanningBadge" class="top-nav-badge" style="display: none;">0</span>
+      </button>
+      <button type="button" class="top-nav-tab" data-page="pageTasksView" id="navTabTasks">
+        <span class="top-nav-icon">📋</span>
+        <span class="top-nav-text">PRO Tasks</span>
+        <span id="navTasksBadge" class="top-nav-badge" style="display: none;">0</span>
+      </button>
+    </nav>
+
+
     <!-- Main Content Container -->
     <main class="content-area">
 
@@ -3226,7 +3489,11 @@
       </div>
 
       <!-- Daily Calls Target Progress Bar Card (Target: 15 Daily Calls) -->
-      <section class="daily-target-card" id="dailyTargetCard" aria-label="Daily Doctor Visits Target Progress">
+      
+
+      <!-- PAGE 1: Daily Calls & Logging (Zero Clutter) -->
+      <div id="pageCallsView" class="app-page-view" style="display: block;">
+<section class="daily-target-card" id="dailyTargetCard" aria-label="Daily Doctor Visits Target Progress">
         <div class="daily-target-header">
           <div class="daily-target-title">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -3247,8 +3514,9 @@
         </div>
       </section>
 
-      <!-- Clinic Visit Time Tracking Card (Check in to Doctor Clinic) -->
-      <section class="clinic-timer-card" aria-label="Check in to Doctor Clinic">
+      <!-- Executive Pre-Check-in Assistant: Pending Visits & Suggested Doctors Tabs (Expands only when tapped) -->
+      
+<section class="clinic-timer-card" aria-label="Check in to Doctor Clinic">
         <div class="timer-card-header">
           <div class="timer-card-title">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -3516,8 +3784,81 @@
         </form>
       </section>
 
-      <!-- Executive Pre-Check-in Assistant: Pending Visits & Suggested Doctors Tabs (Expands only when tapped) -->
-      <section class="assistant-tabs-card" id="preVisitAssistantCard" aria-label="Pending Visits and Suggested Doctors">
+      <!-- Today's Activity Timeline / History Section (Exclusively Doctor Calls & Clinic Logs - ALWAYS VISIBLE) -->
+      <section class="timeline-section" id="historyCard" aria-label="Today's Doctor Call Logs">
+        <div class="timeline-header-row">
+          <h2 class="timeline-title">Today's Call & Time Logs</h2>
+          <span id="todayDateLabel" style="font-size: 0.75rem; font-weight: 700; color: var(--slate-500);">Today</span>
+        </div>
+
+        <!-- Metrics Summary Bar: Doctor calls, met, not met, clinic time -->
+        <div class="metrics-summary-bar">
+          <div class="metric-item">Calls: <span id="metricTotalCalls" class="metric-value">0</span></div>
+          <div class="metric-item">| Met: <span id="metricMetCalls" class="metric-value" style="color: #166534;">0</span></div>
+          <div class="metric-item">| Not Met: <span id="metricNotMetCalls" class="metric-value" style="color: #b91c1c;">0</span></div>
+          <div class="metric-item">| Clinic Time: <span id="metricTotalTime" class="metric-value" style="color: #0369a1;">0m</span></div>
+        </div>
+
+        <!-- Filter Tabs: All Calls, Met Doctor, Doctor Not Met (Duty shifts / punches removed) -->
+        <div class="filter-tabs">
+          <button type="button" class="filter-tab active" data-filter="all">All Calls</button>
+          <button type="button" class="filter-tab" data-filter="met">Met Doctor</button>
+          <button type="button" class="filter-tab" data-filter="not_met">Doctor Not Met</button>
+        </div>
+
+        <!-- Timeline Items List -->
+        <div id="timelineList" class="timeline-list">
+          <div class="empty-state">No doctor calls recorded today yet.<br>Record when you reach and leave the clinic above.</div>
+        </div>
+
+        <!-- Timeline Actions (Export DCR, WhatsApp DCR, Clear Today in a single line) -->
+        <div class="timeline-actions-row">
+          <button type="button" id="exportDcrBtn" class="secondary-btn" title="Download Doctor Calls Report CSV">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <span>Export DCR</span>
+          </button>
+          <button type="button" id="sendDcrWhatsAppBtn" class="secondary-btn" style="color: #15803d; border-color: #86efac; background: #f0fdf4; font-weight: 700;" title="Send Today's Doctor Calls Report via WhatsApp">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg>
+            <span>WhatsApp DCR</span>
+          </button>
+          <button type="button" id="clearHistoryBtn" class="secondary-btn" style="color: var(--danger); border-color: var(--danger-border);" title="Clear today's doctor calls and reset active visit">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
+              <polyline points="3 6 5 6 21 6"/>
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+            </svg>
+            <span>Clear Today</span>
+          </button>
+        </div>
+        <div style="text-align: center; margin-top: 6px; font-size: 0.70rem; color: var(--slate-500);">
+          ⏰ Call logs automatically reset at midnight (12:00 AM) • Tap "Clear Today" anytime to reset manually
+        </div>
+      </section>
+
+      <!-- Visit Planning Section (Below Today's Call and Time Logs) -->
+      
+      </div>
+
+
+      <!-- PAGE 2: Doctor Visit Planning & Route Assistant -->
+      <div id="pagePlanningView" class="app-page-view" style="display: none;">
+        <!-- Planning Page Header Banner -->
+        <div style="background: linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%); border: 1.5px solid #bfdbfe; border-radius: 12px; padding: 12px 14px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+          <div>
+            <div style="font-size: 0.96rem; font-weight: 800; color: #1e3a8a; display: flex; align-items: center; gap: 6px;">
+              <span>📅</span> <span>Doctor Visit Planning &amp; Route Hub</span>
+            </div>
+            <div style="font-size: 0.74rem; color: #3b82f6; font-weight: 600; margin-top: 2px;">
+              Plan upcoming visits, prioritize high-value clinics, and review route distance suggestions.
+            </div>
+          </div>
+        </div>
+<section class="assistant-tabs-card" id="preVisitAssistantCard" aria-label="Pending Visits and Suggested Doctors">
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
           <div class="assistant-tab-nav" role="tablist" style="margin-bottom: 0; flex: 1;">
             <button type="button" class="assistant-tab-btn active" id="btnTabPendingVisits" role="tab" aria-selected="true" aria-controls="panelPendingVisits">
@@ -3589,64 +3930,10 @@
         </div>
       </section>
 
-      <!-- Today's Activity Timeline / History Section (Exclusively Doctor Calls & Clinic Logs - ALWAYS VISIBLE) -->
-      <section class="timeline-section" id="historyCard" aria-label="Today's Doctor Call Logs">
-        <div class="timeline-header-row">
-          <h2 class="timeline-title">Today's Call & Time Logs</h2>
-          <span id="todayDateLabel" style="font-size: 0.75rem; font-weight: 700; color: var(--slate-500);">Today</span>
-        </div>
-
-        <!-- Metrics Summary Bar: Doctor calls, met, not met, clinic time -->
-        <div class="metrics-summary-bar">
-          <div class="metric-item">Calls: <span id="metricTotalCalls" class="metric-value">0</span></div>
-          <div class="metric-item">| Met: <span id="metricMetCalls" class="metric-value" style="color: #166534;">0</span></div>
-          <div class="metric-item">| Not Met: <span id="metricNotMetCalls" class="metric-value" style="color: #b91c1c;">0</span></div>
-          <div class="metric-item">| Clinic Time: <span id="metricTotalTime" class="metric-value" style="color: #0369a1;">0m</span></div>
-        </div>
-
-        <!-- Filter Tabs: All Calls, Met Doctor, Doctor Not Met (Duty shifts / punches removed) -->
-        <div class="filter-tabs">
-          <button type="button" class="filter-tab active" data-filter="all">All Calls</button>
-          <button type="button" class="filter-tab" data-filter="met">Met Doctor</button>
-          <button type="button" class="filter-tab" data-filter="not_met">Doctor Not Met</button>
-        </div>
-
-        <!-- Timeline Items List -->
-        <div id="timelineList" class="timeline-list">
-          <div class="empty-state">No doctor calls recorded today yet.<br>Record when you reach and leave the clinic above.</div>
-        </div>
-
-        <!-- Timeline Actions (Export DCR, WhatsApp DCR, Clear Today in a single line) -->
-        <div class="timeline-actions-row">
-          <button type="button" id="exportDcrBtn" class="secondary-btn" title="Download Doctor Calls Report CSV">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7 10 12 15 17 10"/>
-              <line x1="12" y1="15" x2="12" y2="3"/>
-            </svg>
-            <span>Export DCR</span>
-          </button>
-          <button type="button" id="sendDcrWhatsAppBtn" class="secondary-btn" style="color: #15803d; border-color: #86efac; background: #f0fdf4; font-weight: 700;" title="Send Today's Doctor Calls Report via WhatsApp">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
-              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-            </svg>
-            <span>WhatsApp DCR</span>
-          </button>
-          <button type="button" id="clearHistoryBtn" class="secondary-btn" style="color: var(--danger); border-color: var(--danger-border);" title="Clear today's doctor calls and reset active visit">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
-              <polyline points="3 6 5 6 21 6"/>
-              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-            </svg>
-            <span>Clear Today</span>
-          </button>
-        </div>
-        <div style="text-align: center; margin-top: 6px; font-size: 0.70rem; color: var(--slate-500);">
-          ⏰ Call logs automatically reset at midnight (12:00 AM) • Tap "Clear Today" anytime to reset manually
-        </div>
-      </section>
-
-      <!-- Visit Planning Section (Below Today's Call and Time Logs) -->
-      <section class="visit-planning-card" id="visitPlanningSection" aria-label="Weekly Visit Planning">
+      
+      <!-- Executive Tasks & Timeline Reminders Card -->
+      
+<section class="visit-planning-card" id="visitPlanningSection" aria-label="Weekly Visit Planning">
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
           <div style="display: flex; align-items: center; gap: 7px;">
             <span style="font-size: 1.15rem;">🗓️</span>
@@ -3711,6 +3998,107 @@
         </div>
       </section>
 
+    
+      </div>
+
+
+      <!-- PAGE 3: General PRO Tasks & Operations Deliverables -->
+      <div id="pageTasksView" class="app-page-view" style="display: none;">
+<section class="executive-tasks-card" id="executiveTasksCard" aria-label="PRO Tasks & Operations Deliverables">
+        <!-- Card Top Bar: Title & Sync Tasks Action -->
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; gap: 8px; flex-wrap: wrap;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="width: 32px; height: 32px; border-radius: 8px; background: #ffedd5; color: var(--brand-orange); display: flex; align-items: center; justify-content: center; font-size: 1.15rem;">
+              📋
+            </div>
+            <div>
+              <h2 style="font-size: 0.98rem; font-weight: 800; color: var(--slate-900); margin: 0; line-height: 1.2;">PRO Tasks &amp; Deliverables</h2>
+              <span style="font-size: 0.72rem; color: var(--slate-500); font-weight: 600;">Marketing studies, procurement, administration &amp; field deliverables</span>
+            </div>
+          </div>
+          <button type="button" id="syncTasksFromSheetBtn" class="pill-btn-action" style="background: #2563eb; color: #fff; border-color: #2563eb; font-size: 0.74rem; padding: 6px 12px; font-weight: 800; box-shadow: 0 2px 5px rgba(37, 99, 235, 0.25); display: flex; align-items: center; gap: 5px;">
+            <span id="syncTasksIcon">🔄</span> <span id="syncTasksBtnText">Sync Tasks</span>
+          </button>
+        </div>
+
+        <!-- Assigned PRO Banner (Shows only tasks assigned to this executive from Google Sheets) -->
+        <div style="background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 10px; padding: 9px 12px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="width: 32px; height: 32px; border-radius: 50%; background: #dcfce7; color: #166534; display: flex; align-items: center; justify-content: center; font-size: 1.05rem; font-weight: 800;">
+              👤
+            </div>
+            <div>
+              <div style="font-size: 0.84rem; font-weight: 800; color: #14532d;" id="taskCurrentExecDisplay">
+                Assigned to: Field Executive
+              </div>
+              <div style="font-size: 0.70rem; color: #166534; font-weight: 600;">
+                Tasks assigned by manager via Google Sheets &quot;Tasks&quot; page
+              </div>
+            </div>
+          </div>
+          <span style="background: #ffffff; border: 1px solid #bbf7d0; color: #15803d; font-size: 0.68rem; font-weight: 700; padding: 3px 8px; border-radius: 12px;">
+            🔒 Assigned Tasks View
+          </span>
+        </div>
+
+        <!-- Hidden legacy containers for backward compatibility -->
+        <div style="display: none;" aria-hidden="true">
+          <button type="button" id="openAssignTaskBtn"><span id="assignTaskBtnLabel">➕ Assign Task</span></button>
+          <button type="button" id="quickAddProBtn">➕ Add New PRO</button>
+          <div id="proPillsContainer"></div>
+          <div id="activeProBanner">
+            <span id="activeProBannerText"></span>
+            <button type="button" id="activeProAssignBtn"></button>
+          </div>
+        </div>
+
+        <!-- Tasks Reminder Alert Strip -->
+        <div id="tasksReminderAlertStrip" style="display: none; background: #fff7ed; border: 1.5px solid #fdba74; border-radius: 8px; padding: 8px 12px; margin-bottom: 10px; font-size: 0.74rem; font-weight: 700; color: #9a3412; align-items: center; gap: 6px;">
+          <span style="font-size: 1rem;">⚠️</span>
+          <span id="tasksReminderAlertText">0 tasks need your attention</span>
+        </div>
+
+        <!-- Category & Status Filters -->
+        <div style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px;">
+          <!-- Status Filter Pills -->
+          <div class="tasks-filters-bar" style="display: flex; gap: 4px; overflow-x: auto; padding-bottom: 2px;">
+            <button type="button" class="tab-pill-btn active" data-task-filter="all" id="taskFilterAll">All (<span id="taskCountAll">0</span>)</button>
+            <button type="button" class="tab-pill-btn" data-task-filter="pending" id="taskFilterPending">Pending (<span id="taskCountPending">0</span>)</button>
+            <button type="button" class="tab-pill-btn" data-task-filter="today" id="taskFilterToday">Due Today (<span id="taskCountToday">0</span>)</button>
+            <button type="button" class="tab-pill-btn" data-task-filter="overdue" id="taskFilterOverdue" style="color: #dc2626;">Overdue (<span id="taskCountOverdue">0</span>)</button>
+            <button type="button" class="tab-pill-btn" data-task-filter="completed" id="taskFilterCompleted">Completed (<span id="taskCountCompleted">0</span>)</button>
+          </div>
+
+          <!-- Category Filter Bar -->
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <label for="taskCategoryFilterSelect" style="font-size: 0.70rem; font-weight: 700; color: var(--slate-600); white-space: nowrap;">
+              Category:
+            </label>
+            <select id="taskCategoryFilterSelect" class="text-input" style="font-size: 0.73rem; font-weight: 700; padding: 3px 6px; height: 28px; border-radius: 6px; flex: 1;">
+              <option value="all">All Categories</option>
+              <option value="Marketing Study">📊 Marketing Study &amp; Survey</option>
+              <option value="Equipment Procurement">📦 Equipment Procurement</option>
+              <option value="Hospital / Clinic Admin">🏢 Hospital &amp; Clinic Admin</option>
+              <option value="Sample & Diagnostic Report">🔬 Sample &amp; Report Liaison</option>
+              <option value="Doctor Follow-up">🤝 Doctor &amp; KOL Follow-up</option>
+              <option value="Competitor Analysis">💼 Competitor Analysis</option>
+              <option value="General Deliverable">📌 General Deliverable</option>
+            </select>
+            <!-- Hidden legacy select for backward compatibility -->
+            <select id="taskExecutiveFilterSelect" style="display: none;"><option value="all">All Executives</option></select>
+          </div>
+        </div>
+        <!-- Tasks Dynamic List -->
+        <div id="executiveTasksList" style="min-height: 40px;">
+          <!-- Rendered dynamically -->
+        </div>
+      </section>
+
+
+      <!-- Clinic Visit Time Tracking Card (Check in to Doctor Clinic) -->
+      
+      </div>
+
     </main>
 
     <!-- Clear Today Confirmation Modal (Replaces blocked window.confirm) -->
@@ -3752,81 +4140,131 @@
           <button type="button" id="closeSettingsBtn" class="close-btn" aria-label="Close settings">&times;</button>
         </div>
 
-        <!-- Main Tracker Name (Protected with Edit Pill) -->
-        <div class="form-group">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
-            <label class="form-label" for="settingsAppTitle" style="margin-bottom: 0;">Main Tracker Name</label>
-            <button type="button" id="editAppTitleBtn" class="pill-btn-action">✏️ Edit</button>
-          </div>
-          <input type="text" id="settingsAppTitle" class="text-input" placeholder="e.g. PRO Tracker" readonly style="background: #f1f5f9; cursor: not-allowed;" />
-        </div>
-
-        <!-- Default Rep Profile Info (Protected with Edit Pill) -->
-        <div class="form-group">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
-            <label class="form-label" for="settingsRepName" style="margin-bottom: 0;">Default Executive Name</label>
-            <button type="button" id="editRepNameBtn" class="pill-btn-action">✏️ Edit</button>
-          </div>
-          <input type="text" id="settingsRepName" class="text-input" placeholder="e.g. Rahul Sharma" readonly style="background: #f1f5f9; cursor: not-allowed;" />
-        </div>
-
-        <div class="form-group">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
-            <label class="form-label" for="settingsRepId" style="margin-bottom: 0;">Employee ID / Territory</label>
-            <button type="button" id="editRepIdBtn" class="pill-btn-action">✏️ Edit</button>
-          </div>
-          <input type="text" id="settingsRepId" class="text-input" placeholder="e.g. SD-8802 / Central Hub" readonly style="background: #f1f5f9; cursor: not-allowed;" />
-        </div>
-
-        <!-- WhatsApp Reporting Phone Number (Configurable for DCR & Visit Plan dispatch) -->
-        <div class="form-group">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
-            <label class="form-label" for="settingsWhatsAppNumber" style="margin-bottom: 0;">WhatsApp Reporting Number</label>
-            <button type="button" id="editWhatsAppNumberBtn" class="pill-btn-action">✏️ Edit</button>
-          </div>
-          <input type="tel" id="settingsWhatsAppNumber" class="text-input" placeholder="e.g. 919876543210 or 9876543210" readonly style="background: #f1f5f9; cursor: not-allowed;" />
-          <p style="font-size: 0.70rem; color: var(--slate-500); margin-top: 4px;">
-            Daily Call Reports (DCR) and Visit Plans are dispatched to this WhatsApp number.
-          </p>
-        </div>
-
-        <!-- Doctors Master Directory Link inside Settings -->
-        <div style="background: #fff7ed; border: 1.5px solid #fdba74; border-radius: 8px; padding: 12px; margin-bottom: 12px;">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
-            <div style="display: flex; align-items: center; gap: 6px;">
-              <span style="font-size: 1.1rem;">👨‍⚕️</span>
-              <strong style="font-size: 0.85rem; color: #9a3412;">Doctors Master Directory</strong>
-            </div>
-            <span id="settingsDocCountBadge" style="font-size: 0.72rem; font-weight: 800; background: #ea580c; color: #fff; padding: 2px 7px; border-radius: 12px;">0 Doctors</span>
-          </div>
-          <p style="font-size: 0.74rem; color: #7c2d12; margin-bottom: 8px; line-height: 1.35;">
-            Manage doctors synced from your Google Sheet, view OP timings & best meeting times, and tag GPS coordinates.
-          </p>
-          <button type="button" id="openDirFromSettingsBtn" class="submit-btn" style="padding: 7px 10px; font-size: 0.76rem; background: var(--brand-orange); width: 100%;">
-            <span>Open Doctors Directory</span>
+        <!-- Settings Modal Tab Navigation -->
+        <div class="modal-tab-bar" style="margin-bottom: 14px;">
+          <button type="button" class="modal-tab-btn active settings-tab-btn" id="tabBtnSettingsProfile" data-tab="tab-settings-profile">
+            <span>👤 Profile &amp; Tracker</span>
+          </button>
+          <button type="button" class="modal-tab-btn settings-tab-btn" id="tabBtnSettingsDoctors" data-tab="tab-settings-doctors">
+            <span>📁 Doctors &amp; Sync</span>
+          </button>
+          <button type="button" class="modal-tab-btn settings-tab-btn" id="tabBtnSettingsAdvanced" data-tab="tab-settings-advanced" style="color: #ea580c;">
+            <span>⚙️ Advanced</span>
           </button>
         </div>
 
-        <!-- Sync & Clear Doctors Buttons inside Settings -->
-        <button type="button" id="settingsSyncDoctorsBtn" class="secondary-btn" style="width: 100%; margin-bottom: 8px; background: #e0f2fe; border-color: #38bdf8; color: #0369a1; font-weight: 800;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M21 2v6h-6"/>
-            <path d="M3 12a9 9 0 0 1 15-6.7L21 8"/>
-            <path d="M3 22v-6h6"/>
-            <path d="M21 12a9 9 0 0 1-15 6.7L3 16"/>
-          </svg>
-          <span>🔄 Sync Doctors from Google Sheet</span>
-        </button>
+        <!-- Tab 1: Profile & Tracker Details -->
+        <div id="tab-settings-profile" class="settings-tab-panel" style="display: block;">
+          <!-- Main Tracker Name (Protected with Edit Pill) -->
+          <div class="form-group">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+              <label class="form-label" for="settingsAppTitle" style="margin-bottom: 0;">Main Tracker Name</label>
+              <button type="button" id="editAppTitleBtn" class="pill-btn-action">✏️ Edit</button>
+            </div>
+            <input type="text" id="settingsAppTitle" class="text-input" placeholder="e.g. PRO Tracker" readonly style="background: #f1f5f9; cursor: not-allowed;" />
+          </div>
 
-        <button type="button" id="settingsClearAndSyncBtn" class="secondary-btn" style="width: 100%; margin-bottom: 12px; background: #fff1f2; border-color: #fca5a5; color: #dc2626; font-weight: 800;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="3 6 5 6 21 6"></polyline>
-            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-          </svg>
-          <span>🗑️ Clear All & Fresh Sync from Sheet</span>
-        </button>
+          <!-- Default Rep Profile Info (Protected with Edit Pill) -->
+          <div class="form-group">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+              <label class="form-label" for="settingsRepName" style="margin-bottom: 0;">Default Executive Name</label>
+              <button type="button" id="editRepNameBtn" class="pill-btn-action">✏️ Edit</button>
+            </div>
+            <input type="text" id="settingsRepName" class="text-input" placeholder="e.g. Rahul Sharma" readonly style="background: #f1f5f9; cursor: not-allowed;" />
+          </div>
 
-        <!-- Quick Help Accordion for Google Apps Script -->
+          <div class="form-group">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+              <label class="form-label" for="settingsRepId" style="margin-bottom: 0;">Employee ID / Territory</label>
+              <button type="button" id="editRepIdBtn" class="pill-btn-action">✏️ Edit</button>
+            </div>
+            <input type="text" id="settingsRepId" class="text-input" placeholder="e.g. SD-8802 / Central Hub" readonly style="background: #f1f5f9; cursor: not-allowed;" />
+          </div>
+
+          <!-- WhatsApp Reporting Phone Number (Configurable for DCR & Visit Plan dispatch) -->
+          <div class="form-group">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+              <label class="form-label" for="settingsWhatsAppNumber" style="margin-bottom: 0;">WhatsApp Reporting Number</label>
+              <button type="button" id="editWhatsAppNumberBtn" class="pill-btn-action">✏️ Edit</button>
+            </div>
+            <input type="tel" id="settingsWhatsAppNumber" class="text-input" placeholder="e.g. 919876543210 or 9876543210" readonly style="background: #f1f5f9; cursor: not-allowed;" />
+            <p style="font-size: 0.70rem; color: var(--slate-500); margin-top: 4px;">
+              Daily Call Reports (DCR) and Visit Plans are dispatched to this WhatsApp number.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tab 2: Doctors Directory & Synchronization -->
+        <div id="tab-settings-doctors" class="settings-tab-panel" style="display: none;">
+          <!-- Doctors Master Directory Link inside Settings -->
+          <div style="background: #fff7ed; border: 1.5px solid #fdba74; border-radius: 8px; padding: 12px; margin-bottom: 12px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+              <div style="display: flex; align-items: center; gap: 6px;">
+                <span style="font-size: 1.1rem;">👨‍⚕️</span>
+                <strong style="font-size: 0.85rem; color: #9a3412;">Doctors Master Directory</strong>
+              </div>
+              <span id="settingsDocCountBadge" style="font-size: 0.72rem; font-weight: 800; background: #ea580c; color: #fff; padding: 2px 7px; border-radius: 12px;">0 Doctors</span>
+            </div>
+            <p style="font-size: 0.74rem; color: #7c2d12; margin-bottom: 8px; line-height: 1.35;">
+              Manage doctors synced from your Google Sheet, view OP timings & best meeting times, and tag GPS coordinates.
+            </p>
+            <button type="button" id="openDirFromSettingsBtn" class="submit-btn" style="padding: 7px 10px; font-size: 0.76rem; background: var(--brand-orange); width: 100%;">
+              <span>Open Doctors Directory</span>
+            </button>
+          </div>
+
+          <!-- Sync & Clear Doctors Buttons inside Settings -->
+          <button type="button" id="settingsSyncDoctorsBtn" class="secondary-btn" style="width: 100%; margin-bottom: 8px; background: #e0f2fe; border-color: #38bdf8; color: #0369a1; font-weight: 800;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 2v6h-6"/>
+              <path d="M3 12a9 9 0 0 1 15-6.7L21 8"/>
+              <path d="M3 22v-6h6"/>
+              <path d="M21 12a9 9 0 0 1-15 6.7L3 16"/>
+            </svg>
+            <span>🔄 Sync Doctors from Google Sheet</span>
+          </button>
+
+          <button type="button" id="settingsClearAndSyncBtn" class="secondary-btn" style="width: 100%; margin-bottom: 12px; background: #fff1f2; border-color: #fca5a5; color: #dc2626; font-weight: 800;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="3 6 5 6 21 6"></polyline>
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+            </svg>
+            <span>🗑️ Clear All & Fresh Sync from Sheet</span>
+          </button>
+        </div>
+
+        <!-- Tab 3: Advanced Settings (Webhook & Apps Script with Caution Warning) -->
+        <div id="tab-settings-advanced" class="settings-tab-panel" style="display: none;">
+          <!-- Prominent Caution Alert Box -->
+          <div class="advanced-caution-card" id="advancedCautionBox">
+            <div style="font-size: 1.5rem; line-height: 1; flex-shrink: 0;">⚠️</div>
+            <div>
+              <h4 style="font-size: 0.84rem; font-weight: 800; color: #991b1b; margin: 0 0 3px;">
+                CAUTION: System Administrator Settings
+              </h4>
+              <p style="font-size: 0.72rem; color: #7f1d1d; line-height: 1.4; margin: 0;">
+                Tampering with the Webhook URL or Apps Script Code will cause database synchronization malfunctions and break all doctor visit data logging to Google Sheets.
+              </p>
+            </div>
+          </div>
+
+          <!-- Locked State Notice -->
+          <div id="advancedLockedNotice" style="text-align: center; padding: 16px 14px; background: #fff1f2; border: 1.5px dashed #fca5a5; border-radius: 12px; margin-bottom: 12px;">
+            <div style="font-size: 1.4rem; margin-bottom: 5px;">🔒</div>
+            <div style="font-size: 0.84rem; font-weight: 800; color: #991b1b; margin-bottom: 4px;">
+              Technical Endpoints Are Protected
+            </div>
+            <p style="font-size: 0.74rem; color: #7f1d1d; line-height: 1.4; margin-bottom: 12px; max-width: 320px; margin-left: auto; margin-right: auto;">
+              Modifying these endpoints directly will cause reporting failures. Please confirm you understand before unlocking.
+            </p>
+            <button type="button" id="unlockAdvancedSettingsBtn" class="primary-btn" style="background: #dc2626; border-color: #dc2626; font-size: 0.78rem; font-weight: 800; padding: 8px 16px; margin: 0 auto; justify-content: center;">
+              ⚠️ I Understand • Unlock Advanced Settings
+            </button>
+          </div>
+
+          <!-- Unlocked Technical Area (Hidden until user clicks Unlock) -->
+          <div id="advancedUnlockedArea" style="display: none;">
+            <!-- Quick Help Accordion for Google Apps Script -->
         <details class="script-guide">
           <summary style="font-weight: 700; cursor: pointer; color: var(--brand-orange);">
             📋 Google Sheets Apps Script Code
@@ -3862,6 +4300,7 @@
 // Configuration
 var DOCTOR_SHEET_NAME = "Doctor List";  // Tab name for Doctor Directory
 var CALLS_SHEET_NAME  = "Visit Data";   // Tab name for Visit Call Logs
+var TASKS_SHEET_NAME  = "Tasks";        // Tab name for Executive Tasks (Assign in Google Sheets)
 
 var DOCTORS_SPREADSHEET_ID = null;
 var CALLS_SPREADSHEET_ID   = null;
@@ -3896,7 +4335,7 @@ function formatDocNameWithDR(name) {
   return str ? ("DR " + str) : "";
 }
 
-// Standard Consecutive Headers (Col A to Col L)
+// Standard Consecutive Headers for Doctors (Col A to Col L)
 var STANDARD_DOCTOR_HEADERS = [
   "S.No",
   "Doctor Name",
@@ -3911,6 +4350,96 @@ var STANDARD_DOCTOR_HEADERS = [
   "Location Link",
   "Assigned PRO"
 ];
+
+// Standard Headers for Executive Tasks (Col A to Col M)
+var STANDARD_TASKS_HEADERS = [
+  "Task ID",
+  "Executive Name",
+  "Executive ID",
+  "Task Title",
+  "Category",
+  "Entity / Doctor / Clinic",
+  "Contact Phone",
+  "Due Date",
+  "Due Time",
+  "Priority",
+  "Notes / Instructions",
+  "Status",
+  "Completed At"
+];
+
+function getTasksSheet(overrideName) {
+  var ss = getCallsSpreadsheet();
+  var name = overrideName || TASKS_SHEET_NAME;
+  var sheet = ss.getSheetByName(name);
+  if (!sheet) {
+    var allSheets = ss.getSheets();
+    var aliases = [(name || "").toLowerCase(), "tasks", "pro tasks", "executive tasks", "task list", "task sheet"];
+    for (var a = 0; a &lt; aliases.length; a++) {
+      for (var s = 0; s &lt; allSheets.length; s++) {
+        if (allSheets[s].getName().trim().toLowerCase() === aliases[a]) {
+          sheet = allSheets[s];
+          break;
+        }
+      }
+      if (sheet) break;
+    }
+  }
+  if (!sheet) {
+    sheet = ss.insertSheet(name || TASKS_SHEET_NAME);
+    sheet.appendRow(STANDARD_TASKS_HEADERS);
+    sheet.setFrozenRows(1);
+    try {
+      sheet.getRange(1, 1, 1, STANDARD_TASKS_HEADERS.length).setFontWeight("bold").setBackground("#fed7aa");
+    } catch (e) {}
+  }
+  return sheet;
+}
+
+function resolveTasksColMap(taskSheet) {
+  var lastCol = Math.max(taskSheet.getLastColumn(), 13);
+  var headerRow = [];
+  if (taskSheet.getLastRow() >= 1) {
+    headerRow = taskSheet.getRange(1, 1, 1, lastCol).getValues()[0];
+  }
+  var colMap = {
+    id: 1,
+    assignee: 2,
+    assigneeId: 3,
+    title: 4,
+    category: 5,
+    entity: 6,
+    phone: 7,
+    dueDate: 8,
+    dueTime: 9,
+    priority: 10,
+    notes: 11,
+    status: 12,
+    completedAt: 13
+  };
+
+  for (var c = 0; c &lt; headerRow.length; c++) {
+    var h = (headerRow[c] || "").toString().trim().toLowerCase();
+    if (!h) continue;
+    var col = c + 1;
+    if (h === "task id" || h === "id" || h === "s.no" || h === "sno") colMap.id = col;
+    else if (h.indexOf("executive") !== -1 || h.indexOf("pro") !== -1 || h === "assignee" || h === "assigned to") {
+      if (h.indexOf("id") !== -1 || h.indexOf("code") !== -1) colMap.assigneeId = col;
+      else colMap.assignee = col;
+    }
+    else if (h.indexOf("title") !== -1 || h.indexOf("task") !== -1) colMap.title = col;
+    else if (h.indexOf("cat") !== -1 || h.indexOf("type") !== -1) colMap.category = col;
+    else if (h.indexOf("entity") !== -1 || h.indexOf("doctor") !== -1 || h.indexOf("clinic") !== -1 || h.indexOf("hospital") !== -1) colMap.entity = col;
+    else if (h.indexOf("phone") !== -1 || h.indexOf("contact") !== -1 || h.indexOf("mobile") !== -1) colMap.phone = col;
+    else if (h.indexOf("due date") !== -1 || h === "date" || h === "deadline") colMap.dueDate = col;
+    else if (h.indexOf("due time") !== -1 || h === "time") colMap.dueTime = col;
+    else if (h.indexOf("prior") !== -1) colMap.priority = col;
+    else if (h.indexOf("note") !== -1 || h.indexOf("instruct") !== -1 || h.indexOf("detail") !== -1) colMap.notes = col;
+    else if (h.indexOf("status") !== -1 || h === "done" || h === "completed") colMap.status = col;
+    else if (h.indexOf("completed at") !== -1 || h.indexOf("finish") !== -1) colMap.completedAt = col;
+  }
+  return colMap;
+}
 
 function resolveColMap(docSheet) {
   var lastCol = Math.max(docSheet.getLastColumn(), 12);
@@ -4138,9 +4667,32 @@ function handleRequest(data) {
         var bestTime = (row[colMap.bestTime - 1] || "").toString().trim();
         var priorityVal = (row[colMap.priority - 1] || "").toString().trim() || "Moderate";
 
-        var lat = (row[colMap.lat - 1] !== "" && !isNaN(row[colMap.lat - 1])) ? Number(row[colMap.lat - 1]) : null;
-        var lng = (row[colMap.lng - 1] !== "" && !isNaN(row[colMap.lng - 1])) ? Number(row[colMap.lng - 1]) : null;
+        var rawLat = row[colMap.lat - 1];
+        var rawLng = row[colMap.lng - 1];
+        var lat = null;
+        var lng = null;
+        if (rawLat !== "" && rawLat !== null && !isNaN(rawLat)) {
+          lat = Number(rawLat);
+        } else if (rawLat && typeof rawLat === "string" && rawLat.indexOf(",") !== -1) {
+          var cParts = rawLat.split(",");
+          var pLat = parseFloat(cParts[0].trim());
+          var pLng = parseFloat(cParts[1].trim());
+          if (!isNaN(pLat) && !isNaN(pLng)) {
+            lat = pLat;
+            lng = pLng;
+          }
+        }
+        if (lng === null && rawLng !== "" && rawLng !== null && !isNaN(rawLng)) {
+          lng = Number(rawLng);
+        }
         var locationLink = (row[colMap.mapUrl - 1] || "").toString().trim();
+        if ((lat === null || lng === null) && locationLink) {
+          var match = locationLink.match(/([0-9]+\.[0-9]+)\s*,\s*([0-9]+\.[0-9]+)/);
+          if (match) {
+            if (lat === null) lat = parseFloat(match[1]);
+            if (lng === null) lng = parseFloat(match[2]);
+          }
+        }
         if (!locationLink && lat && lng) {
           locationLink = "https://www.google.com/maps?q=" + lat + "," + lng;
         }
@@ -4172,6 +4724,153 @@ function handleRequest(data) {
         count: doctors.length,
         doctors: doctors,
         sheet_name: docSheet.getName()
+      });
+    } catch (err) {
+      return jsonResponse({ status: "error", message: err.toString() });
+    }
+  }
+
+  // Handle Executive Tasks Retrieval (Assigned in Google Sheets "Tasks" tab)
+  if (action === 'get_tasks') {
+    try {
+      var taskSheet = getTasksSheet(data.task_sheet_name);
+      var colMap = resolveTasksColMap(taskSheet);
+      var maxRow = taskSheet.getLastRow();
+      if (maxRow &lt; 2) {
+        return jsonResponse({ status: "success", count: 0, tasks: [], sheet_name: taskSheet.getName() });
+      }
+      var numRows = maxRow - 1;
+      var lastCol = Math.max(taskSheet.getLastColumn(), 13);
+      var values = taskSheet.getRange(2, 1, numRows, lastCol).getValues();
+      var tasks = [];
+      var filterRepName = (data.rep_name || "").toString().trim().toLowerCase();
+      var filterRepId = (data.rep_id || "").toString().trim().toLowerCase();
+
+      for (var i = 0; i &lt; values.length; i++) {
+        var row = values[i];
+        var title = (row[colMap.title - 1] || "").toString().trim();
+        if (!title) continue;
+
+        var assignee = (row[colMap.assignee - 1] || "").toString().trim();
+        var assigneeId = (row[colMap.assigneeId - 1] || "").toString().trim();
+
+        // Server-side filter if rep_name provided: return tasks for this executive or team broadcast tasks
+        if (filterRepName || filterRepId) {
+          var aLower = assignee.toLowerCase();
+          var aIdLower = assigneeId.toLowerCase();
+          var isMatch = (!assignee && !assigneeId) ||
+                        aLower === "all" || aLower === "team" || aLower === "everyone" ||
+                        (filterRepName && (aLower === filterRepName || aLower.indexOf(filterRepName) !== -1 || filterRepName.indexOf(aLower) !== -1)) ||
+                        (filterRepId && aIdLower === filterRepId);
+          if (!isMatch) continue;
+        }
+
+        var taskId = (row[colMap.id - 1] || "").toString().trim() || ("TSK-" + (i + 2));
+        var category = (row[colMap.category - 1] || "").toString().trim() || "General Deliverable";
+        var entity = (row[colMap.entity - 1] || "").toString().trim();
+        var phone = (row[colMap.phone - 1] || "").toString().trim();
+
+        var rawDueDate = row[colMap.dueDate - 1];
+        var dueDateStr = "";
+        if (rawDueDate instanceof Date) {
+          dueDateStr = Utilities.formatDate(rawDueDate, Session.getScriptTimeZone() || "GMT", "yyyy-MM-dd");
+        } else if (rawDueDate) {
+          dueDateStr = rawDueDate.toString().trim();
+        }
+
+        var rawDueTime = row[colMap.dueTime - 1];
+        var dueTimeStr = "";
+        if (rawDueTime instanceof Date) {
+          dueTimeStr = Utilities.formatDate(rawDueTime, Session.getScriptTimeZone() || "GMT", "HH:mm");
+        } else if (rawDueTime) {
+          dueTimeStr = rawDueTime.toString().trim();
+        }
+
+        var priority = (row[colMap.priority - 1] || "").toString().trim() || "Medium";
+        var notes = (row[colMap.notes - 1] || "").toString().trim();
+        var status = (row[colMap.status - 1] || "").toString().trim() || "Pending";
+        var completedAt = (row[colMap.completedAt - 1] || "").toString().trim();
+
+        tasks.push({
+          id: taskId,
+          task_id: taskId,
+          sheet_row: i + 2,
+          executive_name: assignee,
+          assignee: assignee,
+          executive_id: assigneeId,
+          assigneeId: assigneeId,
+          task_title: title,
+          title: title,
+          category: category,
+          entity: entity,
+          entityName: entity,
+          doctor_clinic: entity,
+          contact_phone: phone,
+          phone: phone,
+          due_date: dueDateStr,
+          dueDate: dueDateStr,
+          due_time: dueTimeStr,
+          dueTime: dueTimeStr,
+          priority: priority,
+          notes: notes,
+          instructions: notes,
+          status: status,
+          completed: status.toLowerCase() === "completed",
+          completed_at: completedAt,
+          completedAt: completedAt
+        });
+      }
+
+      return jsonResponse({
+        status: "success",
+        count: tasks.length,
+        tasks: tasks,
+        sheet_name: taskSheet.getName()
+      });
+    } catch (err) {
+      return jsonResponse({ status: "error", message: err.toString() });
+    }
+  }
+
+  // Update Task Status in Google Sheets (PRO toggles checkbox in app)
+  if (action === 'update_task_status') {
+    try {
+      var taskSheet = getTasksSheet(data.task_sheet_name);
+      var colMap = resolveTasksColMap(taskSheet);
+      var targetRow = null;
+
+      if (data.sheet_row && Number(data.sheet_row) >= 2) {
+        targetRow = Number(data.sheet_row);
+      } else if (data.task_id) {
+        var lastRow = taskSheet.getLastRow();
+        if (lastRow >= 2) {
+          var ids = taskSheet.getRange(2, colMap.id, lastRow - 1, 1).getValues();
+          for (var r = 0; r &lt; ids.length; r++) {
+            if ((ids[r][0] || "").toString().trim() === data.task_id.toString().trim()) {
+              targetRow = r + 2;
+              break;
+            }
+          }
+        }
+      }
+
+      if (!targetRow) {
+        return jsonResponse({ status: "error", message: "Task row not found in sheet" });
+      }
+
+      var newStatus = data.status || "Completed";
+      taskSheet.getRange(targetRow, colMap.status).setValue(newStatus);
+      if (newStatus.toLowerCase() === "completed") {
+        var compTime = data.completed_at || Utilities.formatDate(new Date(), Session.getScriptTimeZone() || "GMT", "yyyy-MM-dd HH:mm:ss");
+        taskSheet.getRange(targetRow, colMap.completedAt).setValue(compTime);
+      } else {
+        taskSheet.getRange(targetRow, colMap.completedAt).setValue("");
+      }
+
+      return jsonResponse({
+        status: "success",
+        message: "Task " + (data.task_id || targetRow) + " updated to " + newStatus,
+        sheet_row: targetRow
       });
     } catch (err) {
       return jsonResponse({ status: "error", message: err.toString() });
@@ -4488,8 +5187,10 @@ function jsonResponse(obj) {
             </button>
           </div>
         </details>
+          </div>
+        </div>
 
-        <!-- Save Button -->
+  
         <button type="button" id="saveSettingsBtn" class="submit-btn" style="margin-top: 10px;">
           <span>Save Settings</span>
         </button>
@@ -4993,6 +5694,154 @@ function jsonResponse(obj) {
       </div>
     </div>
 
+    <!-- Assign Executive Task Modal -->
+    <div id="assignTaskModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="assignTaskModalTitle" style="display: none;">
+      <div class="modal-sheet" style="max-width: 440px; padding: 20px; border-radius: 20px 20px 0 0;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="width: 36px; height: 36px; border-radius: 10px; background: #ffedd5; color: var(--brand-orange); display: flex; align-items: center; justify-content: center; font-size: 1.15rem;">
+              📋
+            </div>
+            <div>
+              <h3 id="assignTaskModalTitle" style="font-size: 1.08rem; font-weight: 800; color: var(--slate-900); margin: 0; line-height: 1.2;">Assign Executive Task</h3>
+              <span style="font-size: 0.72rem; color: var(--slate-500); font-weight: 600;">Timeline deadlines &amp; WhatsApp reminders</span>
+            </div>
+          </div>
+          <button type="button" id="closeAssignTaskModalBtn" class="close-btn" aria-label="Close">&times;</button>
+        </div>
+
+        <form id="assignTaskForm" style="display: flex; flex-direction: column; gap: 10px;">
+          <input type="hidden" id="editTaskId" />
+
+          <!-- Task Category (General: Marketing, Procurement, Admin, etc.) -->
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="taskCategorySelect">Task Category *</label>
+            <select id="taskCategorySelect" class="text-input" style="font-weight: 700; font-size: 0.82rem; padding: 7px 9px;">
+              <option value="Marketing Study">📊 Marketing Study &amp; Market Survey</option>
+              <option value="Equipment Procurement">📦 Equipment &amp; Supplies Procurement</option>
+              <option value="Hospital / Clinic Admin">🏢 Hospital &amp; Clinic Administration</option>
+              <option value="Sample & Diagnostic Report">🔬 Diagnostic Sample &amp; Report Liaison</option>
+              <option value="Doctor Follow-up">🤝 Doctor &amp; Key Opinion Leader Follow-up</option>
+              <option value="Competitor Analysis">💼 Competitor Intelligence &amp; Tariff Study</option>
+              <option value="General Deliverable" selected>📌 General Operational Deliverable</option>
+            </select>
+          </div>
+
+          <!-- Task Title / Action Item -->
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="taskTitleInput">Task / Action Item *</label>
+            <input type="text" id="taskTitleInput" class="text-input" placeholder="e.g. Conduct pricing survey for ultrasound in Zone B, procure MRI warranty renewal..." required style="font-weight: 700;" />
+          </div>
+
+          <!-- Assign To PRO (Field Executive) -->
+          <div class="form-group" style="margin-bottom: 0;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+              <label class="form-label" for="taskAssigneeSelect" style="margin-bottom: 0;">Assign to PRO *</label>
+              <div style="display: flex; gap: 6px;">
+                <button type="button" id="taskAssignSelfBtn" class="link-btn-text" style="font-size: 0.68rem; color: #0284c7; font-weight: 700;">👤 Current User</button>
+                <button type="button" id="taskToggleNewProBtn" class="link-btn-text" style="font-size: 0.68rem; color: var(--brand-orange); font-weight: 700;">➕ New PRO</button>
+              </div>
+            </div>
+            <select id="taskAssigneeSelect" class="text-input" style="font-weight: 700; font-size: 0.82rem;">
+              <!-- Populated dynamically with registered PROs -->
+            </select>
+            <input type="text" id="taskAssigneeInput" class="text-input" placeholder="Type New PRO Name" style="font-weight: 700; display: none; margin-top: 5px;" />
+          </div>
+
+          <!-- PRO WhatsApp Number (For Direct 1-Tap Reminders) -->
+          <div class="form-group" style="margin-bottom: 0;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+              <label class="form-label" for="taskPhoneInput" style="margin-bottom: 0;">PRO WhatsApp Number</label>
+              <span style="font-size: 0.68rem; color: var(--slate-500);">For 1-tap reminders</span>
+            </div>
+            <input type="tel" id="taskPhoneInput" class="text-input" placeholder="e.g. 9840012345 or 919840012345" />
+          </div>
+
+          <!-- Associated Entity / Vendor / Doctor / Facility (Optional) -->
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="taskEntityInput">Associated Entity / Vendor / Doctor / Facility (Optional)</label>
+            <input type="text" id="taskEntityInput" list="taskEntityDatalist" class="text-input" placeholder="e.g. Siemens Healthineers, Apollo Hospital, Dr. Ramesh Kumar..." style="font-size: 0.82rem;" />
+            <datalist id="taskEntityDatalist"></datalist>
+            <!-- Hidden legacy select for backward compatibility -->
+            <select id="taskDoctorSelect" style="display: none;"><option value="">-- None --</option></select>
+          </div>
+          <!-- Timeline: Due Date & Time -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" for="taskDueDateInput">Due Date *</label>
+              <input type="date" id="taskDueDateInput" class="text-input" required style="font-size: 0.82rem; font-weight: 700; padding: 7px 9px;" />
+            </div>
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" for="taskDueTimeInput">Due Time</label>
+              <input type="time" id="taskDueTimeInput" class="text-input" value="17:00" style="font-size: 0.82rem; font-weight: 700; padding: 7px 9px;" />
+            </div>
+          </div>
+
+          <!-- Priority -->
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="taskPrioritySelect">Priority Level</label>
+            <select id="taskPrioritySelect" class="text-input" style="font-weight: 700; font-size: 0.82rem;">
+              <option value="High">🔴 High Priority (Urgent)</option>
+              <option value="Medium" selected>🟡 Medium Priority (Routine)</option>
+              <option value="Low">🔵 Low Priority (Flexible)</option>
+            </select>
+          </div>
+
+          <!-- Instructions / Notes -->
+          <div class="form-group" style="margin-bottom: 4px;">
+            <label class="form-label" for="taskNotesInput">Specific Instructions / Notes</label>
+            <textarea id="taskNotesInput" class="text-input" rows="2" placeholder="e.g. Meet doctor before 1 PM OP ends, collect patient case list..."></textarea>
+          </div>
+
+          <!-- Action Buttons -->
+          <div style="display: flex; gap: 8px; margin-top: 4px;">
+            <button type="submit" id="submitTaskBtn" class="primary-btn" style="flex: 2; padding: 10px; font-weight: 800; font-size: 0.84rem; justify-content: center; background: var(--brand-orange); border-color: var(--brand-orange);">
+              <span id="submitTaskBtnText">➕ Assign Task &amp; Set Timeline</span>
+            </button>
+            <button type="button" id="cancelTaskModalBtn" class="secondary-btn" style="flex: 1; padding: 10px; font-size: 0.80rem; justify-content: center;">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Add / Register New PRO Modal (Clean Dialog, No window.prompt) -->
+    <div id="addProModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="addProModalTitle" style="display: none;">
+      <div class="modal-sheet" style="max-width: 380px; padding: 20px; border-radius: 20px 20px 0 0;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="width: 34px; height: 34px; border-radius: 10px; background: #e0f2fe; color: #0284c7; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;">
+              👤
+            </div>
+            <div>
+              <h3 id="addProModalTitle" style="font-size: 1.02rem; font-weight: 800; color: var(--slate-900); margin: 0;">Register New PRO</h3>
+              <span style="font-size: 0.70rem; color: var(--slate-500); font-weight: 600;">Add executive to your team for task assignments</span>
+            </div>
+          </div>
+          <button type="button" id="closeAddProModalBtn" class="close-btn" aria-label="Close">&times;</button>
+        </div>
+        <form id="addProForm" style="display: flex; flex-direction: column; gap: 10px;">
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="newProNameInput">PRO / Executive Name *</label>
+            <input type="text" id="newProNameInput" class="text-input" placeholder="e.g. Rahul Sharma, Sneha Patel" required style="font-weight: 700;" />
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="newProPhoneInput">WhatsApp Phone Number (Optional)</label>
+            <input type="tel" id="newProPhoneInput" class="text-input" placeholder="e.g. 9840012345 (for 1-click reminders)" />
+          </div>
+          <div style="display: flex; gap: 8px; margin-top: 6px;">
+            <button type="submit" class="primary-btn" style="flex: 2; justify-content: center; background: #0284c7; border-color: #0284c7; font-weight: 800; font-size: 0.82rem; padding: 9px 12px;">
+              <span>💾 Save PRO</span>
+            </button>
+            <button type="button" id="cancelAddProModalBtn" class="secondary-btn" style="flex: 1; justify-content: center; font-size: 0.80rem; padding: 9px 12px;">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <!-- Conclude Clinic Visit "Are You Sure?" Modal -->
     <div id="concludeConfirmModal" class="conclude-confirm-overlay" role="dialog" aria-modal="true" style="display: none;">
       <div class="conclude-confirm-sheet">
@@ -5067,11 +5916,22 @@ function jsonResponse(obj) {
         ACTIVE_VISIT: 'pro_tracker_active_visit_v2',
         DOCTORS: 'pro_tracker_doctors_master_v2',
         CUSTOM_DEPTS: 'pro_tracker_custom_depts_v2',
-        PLANNED_VISITS: 'pro_tracker_planned_visits_v2'
+        PLANNED_VISITS: 'pro_tracker_planned_visits_v2',
+        EXECUTIVE_TASKS: 'pro_tracker_executive_tasks_v2',
+        PRO_LIST: 'pro_tracker_registered_pros_v1'
       };
 
       // State
       let activities = [];
+      let plannedVisits = [];
+      // Executive Task Assignment & Tracking State
+      let executiveTasks = [];
+      let currentTaskFilter = 'all'; // 'all' | 'pending' | 'today' | 'overdue' | 'completed'
+      let currentTaskExecFilter = 'all'; // 'all' | executive name
+      let isAdvancedSettingsUnlocked = false;
+      let currentAppPage = 'pageCallsView'; // 'pageCallsView' | 'pagePlanningView' | 'pageTasksView'
+      let currentTaskCategoryFilter = 'all'; // 'all' or category string
+      let registeredPros = [];
       let currentFilter = 'all'; // 'all' | 'met' | 'not_met'
       let currentGps = {
         lat: null,
@@ -5368,6 +6228,11 @@ function jsonResponse(obj) {
         loadDoctors();
         loadActivities();
         loadActiveVisit();
+        loadExecutiveTasks();
+        const savedPage = sessionStorage.getItem('pro_tracker_active_page') || 'pageCallsView';
+        switchAppPage(savedPage);
+        updateNavBadges();
+        populateTaskDoctorSelect();
         setupEventListeners();
         updateDateLabel();
         initDefaultTimes();
@@ -5379,6 +6244,9 @@ function jsonResponse(obj) {
         if (settings.webhookUrl && settings.webhookUrl.startsWith('http')) {
           setTimeout(() => {
             syncDoctorsFromSheet(false);
+            if (typeof fetchTasksFromSheet === 'function') {
+              fetchTasksFromSheet(true);
+            }
           }, 350);
         } else {
           updateHeaderDocCount();
@@ -5409,6 +6277,41 @@ function jsonResponse(obj) {
         toastTimer = setTimeout(() => {
           toastNotification.className = 'toast';
         }, 3200);
+      }
+
+      // Date & Time Helpers
+      function getTodayDateString(input = new Date()) {
+        let d = input;
+        if (typeof input === 'string') {
+          if (/^\d{4}-\d{2}-\d{2}$/.test(input)) {
+            return input;
+          }
+          d = new Date(input);
+        } else if (!(input instanceof Date)) {
+          d = new Date();
+        }
+        if (isNaN(d.getTime())) {
+          d = new Date();
+        }
+        const year = d.getFullYear();
+        const month = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+      }
+
+      function formatDocNameWithDR(name) {
+        var str = (name || '').toString().trim();
+        str = str.replace(/^(DR\.?|DOCTOR)\s*/i, '').trim();
+        return str ? ('DR ' + str) : '';
+      }
+
+      function updatePreVisitAssistant() {
+        if (typeof renderPendingVisits === 'function') renderPendingVisits();
+        if (typeof renderSuggestedDoctors === 'function') renderSuggestedDoctors();
+      }
+
+      function renderPlannedDays() {
+        if (typeof renderVisitPlanning === 'function') renderVisitPlanning();
       }
 
       // Time Helpers
@@ -5622,6 +6525,10 @@ function jsonResponse(obj) {
         updateSyncPill();
         settingsModal.classList.remove('show');
         showToast('Settings saved successfully', 'success');
+        loadExecutiveTasks();
+        if (typeof fetchTasksFromSheet === 'function') {
+          fetchTasksFromSheet(true);
+        }
       }
 
       // Distance helper (Haversine formula in meters)
@@ -5637,6 +6544,33 @@ function jsonResponse(obj) {
                   Math.sin(deltaLambda / 2) * Math.sin(deltaLambda / 2);
         const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         return Math.round(R * c);
+      }
+
+      // Doctor GPS Coordinates Resolver & Normalizer
+      function getDoctorCoordinates(doc) {
+        if (!doc) return { lat: null, lng: null, hasGps: false };
+        let lat = (doc.latitude !== undefined && doc.latitude !== null && doc.latitude !== '') 
+          ? Number(doc.latitude) 
+          : ((doc.lat !== undefined && doc.lat !== null && doc.lat !== '') ? Number(doc.lat) : null);
+        let lng = (doc.longitude !== undefined && doc.longitude !== null && doc.longitude !== '') 
+          ? Number(doc.longitude) 
+          : ((doc.lng !== undefined && doc.lng !== null && doc.lng !== '') ? Number(doc.lng) : null);
+
+        // If lat or lng is missing, attempt extracting from Google Maps location link
+        if ((lat === null || isNaN(lat) || lng === null || isNaN(lng)) && doc.location_link) {
+          const match = doc.location_link.match(/([0-9]+\.[0-9]+)\s*,\s*([0-9]+\.[0-9]+)/);
+          if (match) {
+            lat = parseFloat(match[1]);
+            lng = parseFloat(match[2]);
+          }
+        }
+
+        const valid = (lat !== null && !isNaN(lat) && lng !== null && !isNaN(lng) && lat !== 0 && lng !== 0);
+        return {
+          lat: valid ? lat : null,
+          lng: valid ? lng : null,
+          hasGps: valid
+        };
       }
 
       // Load Doctors Master List from LocalStorage (Purging any old sample doctors and undefined clinics)
@@ -5658,6 +6592,11 @@ function jsonResponse(obj) {
               }
               if (d.name) {
                 d.name = d.name.replace(/^(DR\.?|DR)\s+/i, '').trim();
+              }
+              const coords = getDoctorCoordinates(d);
+              if (coords.hasGps) {
+                d.latitude = coords.lat;
+                d.longitude = coords.lng;
               }
               return d;
             });
@@ -5695,6 +6634,7 @@ function jsonResponse(obj) {
         if (settingsDocCountBadge) {
           settingsDocCountBadge.textContent = `${count} Doctors`;
         }
+        populateTaskDoctorSelect();
       }
 
       // Purge all existing doctors from local storage and memory
@@ -6247,17 +7187,18 @@ function jsonResponse(obj) {
         if (!selectedDoctorCard) return;
 
         let distanceText = '';
-        if (currentGps.locked && currentGps.lat && doc.latitude && doc.longitude) {
-          const dist = getDistanceMeters(currentGps.lat, currentGps.lng, doc.latitude, doc.longitude);
+        const coords = getDoctorCoordinates(doc);
+        const hasGps = coords.hasGps;
+        if (currentGps.locked && currentGps.lat && hasGps) {
+          const dist = getDistanceMeters(currentGps.lat, currentGps.lng, coords.lat, coords.lng);
           if (dist !== null) {
             distanceText = ` • <strong>${dist > 1000 ? (dist/1000).toFixed(1) + 'km' : dist + 'm'} away</strong>`;
           }
         }
 
-        const hasGps = !!(doc.latitude && doc.longitude);
         const gpsHtml = hasGps ? `
           <div class="gps-lock-status">
-            <span>📍 GPS Locked: ${doc.latitude.toFixed(4)}°, ${doc.longitude.toFixed(4)}°${distanceText}</span>
+            <span>📍 GPS Locked: ${coords.lat.toFixed(4)}°, ${coords.lng.toFixed(4)}°${distanceText}</span>
           </div>
           <button type="button" class="tag-gps-btn" id="cardTagGpsBtn" title="Update doctor GPS coordinates to current location">
             <span>🔄 Update GPS</span>
@@ -6953,12 +7894,13 @@ function jsonResponse(obj) {
       function renderSuggestedDoctors() {
         if (!suggestedDoctorsList) return;
         const now = new Date();
-        const hasGps = currentGps.locked && currentGps.lat && currentGps.lng;
+        const hasUserGps = currentGps.locked && currentGps.lat && currentGps.lng;
 
         // Calculate metadata for all doctors: distance, availability, month visits, priority
         let list = doctors.map(doc => {
-          const dist = (hasGps && doc.latitude && doc.longitude) 
-            ? getDistanceInMeters(currentGps.lat, currentGps.lng, doc.latitude, doc.longitude)
+          const coords = getDoctorCoordinates(doc);
+          const dist = (hasUserGps && coords.hasGps) 
+            ? getDistanceMeters(currentGps.lat, currentGps.lng, coords.lat, coords.lng)
             : null;
           const avail = getDoctorAvailability(doc, now);
           const monthVisits = getDoctorMonthVisits(doc);
@@ -6966,6 +7908,7 @@ function jsonResponse(obj) {
 
           return {
             doc,
+            coords,
             dist,
             avail,
             monthVisits,
@@ -7005,6 +7948,10 @@ function jsonResponse(obj) {
           if (a.dist !== null) return -1;
           if (b.dist !== null) return 1;
 
+          // If phone GPS is off or dist not available, sort doctors with GPS tagged first
+          if (a.coords.hasGps && !b.coords.hasGps) return -1;
+          if (!a.coords.hasGps && b.coords.hasGps) return 1;
+
           // Tertiary sort: Priority
           const pA = getPriorityWeight(a.doc);
           const pB = getPriorityWeight(b.doc);
@@ -7029,7 +7976,7 @@ function jsonResponse(obj) {
 
         if (list.length === 0) {
           let emptyMsg = 'No doctors match current filters.';
-          if (suggestedFilterProximity !== 'all' && !hasGps) {
+          if (suggestedFilterProximity !== 'all' && !hasUserGps) {
             emptyMsg = 'Turn on GPS or select "All" proximity to view doctors without tagged distance.';
           }
           suggestedDoctorsList.innerHTML = `
@@ -7042,12 +7989,17 @@ function jsonResponse(obj) {
           return;
         }
 
-        suggestedDoctorsList.innerHTML = list.map(({ doc, dist, avail, monthVisits, priority }) => {
+        suggestedDoctorsList.innerHTML = list.map(({ doc, coords, dist, avail, monthVisits, priority }) => {
           const cleanClinic = (doc.clinic && doc.clinic.toLowerCase() !== 'undefined') ? doc.clinic : 'Clinic';
           const priorityClass = `priority-badge-${priority.toLowerCase()}`;
-          const distBadge = dist !== null 
-            ? `<span style="background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; font-size: 0.67rem; font-weight: 800; padding: 1px 6px; border-radius: 6px;">📍 ${dist < 1000 ? dist + 'm' : (dist/1000).toFixed(1) + 'km'} away</span>`
-            : `<span style="background: #f1f5f9; color: var(--slate-500); font-size: 0.67rem; padding: 1px 6px; border-radius: 6px;">📍 No GPS tagged</span>`;
+          let distBadge = '';
+          if (dist !== null) {
+            distBadge = `<span style="background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; font-size: 0.67rem; font-weight: 800; padding: 1px 6px; border-radius: 6px;">📍 ${dist < 1000 ? Math.round(dist) + 'm' : (dist/1000).toFixed(1) + 'km'} away</span>`;
+          } else if (coords.hasGps) {
+            distBadge = `<span style="background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; font-size: 0.67rem; font-weight: 800; padding: 1px 6px; border-radius: 6px;" title="Doctor coordinates: ${coords.lat.toFixed(4)}, ${coords.lng.toFixed(4)}">📍 GPS Tagged</span>`;
+          } else {
+            distBadge = `<span style="background: #f1f5f9; color: var(--slate-500); font-size: 0.67rem; padding: 1px 6px; border-radius: 6px;">📍 No GPS tagged</span>`;
+          }
           
           const availBadge = avail.isNow
             ? `<span style="background: #dcfce7; color: #166534; border: 1px solid #86efac; font-size: 0.67rem; font-weight: 800; padding: 1px 6px; border-radius: 6px;">🟢 ${escapeHtml(avail.status)}</span>`
@@ -7098,6 +8050,7 @@ function jsonResponse(obj) {
 
       function quickSelectDoctorForVisit(doc) {
         vibrate(30);
+        switchAppPage('pageCallsView');
         selectDoctor(doc);
         if (doc.clinic && facilityNameInput) {
           facilityNameInput.value = doc.clinic;
@@ -7330,7 +8283,8 @@ function jsonResponse(obj) {
           plannedDocsList.innerHTML = plannedList.map((item, index) => {
             const doc = doctors.find(d => d.id === item.docId) || item;
             const cleanClinic = (doc.clinic && doc.clinic.toLowerCase() !== 'undefined') ? doc.clinic : 'Clinic';
-            const hasGps = !!(doc.latitude && doc.longitude);
+            const coords = getDoctorCoordinates(doc);
+            const hasGps = coords.hasGps;
             const gpsLabel = hasGps ? `📍 GPS Marked` : `📍 No GPS`;
             const isFirst = index === 0;
             const isLast = index === plannedList.length - 1;
@@ -8014,9 +8968,10 @@ function jsonResponse(obj) {
         }
 
         dirDoctorsList.innerHTML = filtered.map(d => {
-          const hasGps = !!(d.latitude && d.longitude);
+          const coords = getDoctorCoordinates(d);
+          const hasGps = coords.hasGps;
           const gpsIconClass = hasGps ? 'mini-icon-btn gps-active' : 'mini-icon-btn';
-          const gpsTitle = hasGps ? `GPS: ${d.latitude.toFixed(4)}, ${d.longitude.toFixed(4)}` : 'Tap to tag current GPS';
+          const gpsTitle = hasGps ? `GPS: ${coords.lat.toFixed(4)}, ${coords.lng.toFixed(4)}` : 'Tap to tag current GPS';
           const opToggleBtn = d.op_timings ? `
             <div style="margin-top: 3px;">
               <button type="button" class="dir-op-timing-toggle" data-toggle-op="${escapeHtml(d.id)}">⏰ OP Timings ▾</button>
@@ -8298,6 +9253,8 @@ function jsonResponse(obj) {
         if (!rawUrl || !rawUrl.startsWith('http')) {
           if (!silent) {
             showToast('Please configure Google Apps Script Web App URL in Settings first', 'error');
+            switchSettingsTab('tab-settings-advanced');
+            unlockAdvancedSettings(true);
             settingsModal.classList.add('show');
           }
           return;
@@ -8413,11 +9370,20 @@ function jsonResponse(obj) {
                 priority = 'Moderate';
               }
               const cleanName = (sheetDoc.name || '').replace(/^(DR\.?|DR)\s+/i, '').trim();
+              const coords = getDoctorCoordinates(sheetDoc);
+              let locationLink = (sheetDoc.location_link || '').trim();
+              if (!locationLink && coords.hasGps) {
+                locationLink = `https://www.google.com/maps?q=${coords.lat},${coords.lng}`;
+              }
+
               return {
                 ...sheetDoc,
                 name: cleanName,
                 clinic: clinic,
                 priority: priority,
+                latitude: coords.hasGps ? coords.lat : null,
+                longitude: coords.hasGps ? coords.lng : null,
+                location_link: locationLink,
                 id: sheetDoc.id || ('doc_row_' + sheetDoc.sheet_row) || ('doc_' + Date.now())
               };
             });
@@ -8429,6 +9395,9 @@ function jsonResponse(obj) {
             renderVisitPlanning();
             renderPendingVisits();
             renderSuggestedDoctors();
+            if (typeof fetchTasksFromSheet === 'function') {
+              fetchTasksFromSheet(true);
+            }
 
             // If the selected doctor was deleted from Google Sheet, clear selection
             if (selectedDoctor) {
@@ -8511,6 +9480,1104 @@ function jsonResponse(obj) {
       }
 
       // Load Activities
+      
+      /* ======================================================================
+         TOP-LEVEL MULTI-PAGE APPLICATION NAVIGATION
+         ====================================================================== */
+      function switchAppPage(targetPageId) {
+        currentAppPage = targetPageId;
+        vibrate(20);
+
+        // Update nav tabs
+        const navBtns = document.querySelectorAll('.top-nav-tab');
+        navBtns.forEach(btn => {
+          if (btn.getAttribute('data-page') === targetPageId) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        });
+
+        // Update page containers
+        const pages = document.querySelectorAll('.app-page-view');
+        pages.forEach(p => {
+          if (p.id === targetPageId) {
+            p.style.display = 'block';
+          } else {
+            p.style.display = 'none';
+          }
+        });
+
+        // Page specific refreshes
+        if (targetPageId === 'pagePlanningView') {
+          if (typeof renderPendingVisits === 'function') renderPendingVisits();
+          if (typeof renderSuggestedDoctors === 'function') renderSuggestedDoctors();
+          if (typeof renderVisitPlanning === 'function') renderVisitPlanning();
+        } else if (targetPageId === 'pageTasksView') {
+          renderProSelectorBar();
+          renderExecutiveTasks();
+        }
+
+        // Store active page preference
+        try {
+          sessionStorage.setItem('pro_tracker_active_page', targetPageId);
+        } catch (e) {}
+
+        // Scroll to top smoothly
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function updateNavBadges() {
+        // Planning badge: planned visits for selected/today date
+        const planBadge = document.getElementById('navPlanningBadge');
+        if (planBadge) {
+          const todayStr = getTodayDateString();
+          let todayPlanned = [];
+          if (typeof getPlannedVisitsForDay === 'function') {
+            todayPlanned = getPlannedVisitsForDay(todayStr);
+          } else if (typeof plannedVisits !== 'undefined' && Array.isArray(plannedVisits)) {
+            todayPlanned = plannedVisits.filter(pv => pv.date === todayStr);
+          }
+          if (todayPlanned && todayPlanned.length > 0) {
+            planBadge.textContent = todayPlanned.length;
+            planBadge.style.display = 'inline-block';
+          } else {
+            planBadge.style.display = 'none';
+          }
+        }
+
+        // Tasks badge: pending tasks count + overdue alert
+        const tasksBadge = document.getElementById('navTasksBadge');
+        if (tasksBadge) {
+          const pendingCount = executiveTasks.filter(t => !t.completed).length;
+          const overdueCount = executiveTasks.filter(t => !t.completed && getTaskDeadlineInfo(t).isOverdue).length;
+          if (pendingCount > 0) {
+            tasksBadge.textContent = pendingCount;
+            tasksBadge.style.display = 'inline-block';
+            if (overdueCount > 0) {
+              tasksBadge.style.background = '#dc2626';
+              tasksBadge.title = `${pendingCount} pending tasks (${overdueCount} overdue)`;
+            } else {
+              tasksBadge.style.background = 'var(--brand-orange)';
+              tasksBadge.title = `${pendingCount} pending tasks`;
+            }
+          } else {
+            tasksBadge.style.display = 'none';
+          }
+        }
+      }
+
+      /* ======================================================================
+         SETTINGS TAB SWITCHING & ADVANCED PROTECTIVE UNLOCK
+         ====================================================================== */
+      function switchSettingsTab(targetTabId) {
+        const tabBtns = document.querySelectorAll('.settings-tab-btn');
+        const tabPanels = document.querySelectorAll('.settings-tab-panel');
+        
+        tabBtns.forEach(btn => {
+          if (btn.getAttribute('data-tab') === targetTabId) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        });
+
+        tabPanels.forEach(panel => {
+          if (panel.id === targetTabId) {
+            panel.style.display = 'block';
+          } else {
+            panel.style.display = 'none';
+          }
+        });
+      }
+
+      function unlockAdvancedSettings(silent = false) {
+        isAdvancedSettingsUnlocked = true;
+        const lockedNotice = document.getElementById('advancedLockedNotice');
+        const unlockedArea = document.getElementById('advancedUnlockedArea');
+        if (lockedNotice) lockedNotice.style.display = 'none';
+        if (unlockedArea) {
+          unlockedArea.style.display = 'block';
+          unlockedArea.style.animation = 'fadeIn 0.25s ease-out';
+        }
+        if (!silent) {
+          vibrate(40);
+          showToast('Advanced Settings unlocked. Please proceed with caution.', 'warning', 4000);
+        }
+      }
+
+      /* ======================================================================
+         PRO TEAM MANAGEMENT & GENERAL OPERATIONS TASKS
+         ====================================================================== */
+      function loadRegisteredPros() {
+        try {
+          const stored = localStorage.getItem(STORAGE_KEYS.PRO_LIST);
+          if (stored) {
+            registeredPros = JSON.parse(stored);
+          } else {
+            registeredPros = [
+              { name: settings.repName || 'Field Executive', phone: settings.reportingWhatsApp || '' },
+              { name: 'Rahul Sharma', phone: '' },
+              { name: 'Sneha Patel', phone: '' }
+            ];
+            saveRegisteredPros();
+          }
+        } catch (e) {
+          registeredPros = [{ name: settings.repName || 'Field Executive', phone: '' }];
+        }
+
+        // Also harvest any assignees in existing tasks
+        executiveTasks.forEach(t => {
+          if (t.assignee && !registeredPros.some(p => p.name.trim().toLowerCase() === t.assignee.trim().toLowerCase())) {
+            registeredPros.push({ name: t.assignee.trim(), phone: t.phone || '' });
+          }
+        });
+      }
+
+      function saveRegisteredPros() {
+        try {
+          localStorage.setItem(STORAGE_KEYS.PRO_LIST, JSON.stringify(registeredPros));
+        } catch (e) {}
+      }
+
+      function registerNewPro(name, phone = '') {
+        const cleanName = (name || '').trim();
+        if (!cleanName) return;
+        const existing = registeredPros.find(p => p.name.toLowerCase() === cleanName.toLowerCase());
+        if (existing) {
+          if (phone) existing.phone = phone.trim();
+        } else {
+          registeredPros.push({ name: cleanName, phone: (phone || '').trim() });
+        }
+        saveRegisteredPros();
+        renderProSelectorBar();
+        populateTaskAssigneeSelect();
+      }
+
+      function renderProSelectorBar() {
+        const container = document.getElementById('proPillsContainer');
+        if (!container) return;
+
+        // Count pending tasks per PRO
+        const counts = {};
+        executiveTasks.forEach(t => {
+          if (!t.completed) {
+            const name = (t.assignee || 'General').trim();
+            counts[name] = (counts[name] || 0) + 1;
+          }
+        });
+
+        const totalPending = executiveTasks.filter(t => !t.completed).length;
+
+        let pillsHtml = `
+          <button type="button" class="pro-pill-btn ${currentTaskExecFilter === 'all' ? 'active' : ''}" data-pro-filter="all">
+            All PROs (${totalPending})
+          </button>
+        `;
+
+        registeredPros.forEach(pro => {
+          const count = counts[pro.name] || 0;
+          const isActive = currentTaskExecFilter.toLowerCase() === pro.name.toLowerCase();
+          pillsHtml += `
+            <button type="button" class="pro-pill-btn ${isActive ? 'active' : ''}" data-pro-filter="${escapeHtml(pro.name)}">
+              👤 ${escapeHtml(pro.name)} ${count > 0 ? `(${count})` : ''}
+            </button>
+          `;
+        });
+
+        container.innerHTML = pillsHtml;
+
+        // Bind clicks
+        container.querySelectorAll('[data-pro-filter]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            vibrate(20);
+            currentTaskExecFilter = btn.getAttribute('data-pro-filter');
+            updateActiveProBanner();
+            renderProSelectorBar();
+            renderExecutiveTasks();
+          });
+        });
+
+        updateActiveProBanner();
+      }
+
+      function updateActiveProBanner() {
+        const banner = document.getElementById('activeProBanner');
+        const bannerText = document.getElementById('activeProBannerText');
+        const assignBtnLabel = document.getElementById('assignTaskBtnLabel');
+
+        if (!banner || !bannerText) return;
+
+        if (currentTaskExecFilter !== 'all') {
+          const proObj = registeredPros.find(p => p.name.toLowerCase() === currentTaskExecFilter.toLowerCase());
+          const phoneText = proObj && proObj.phone ? ` • 📱 ${proObj.phone}` : '';
+          const pendingCount = executiveTasks.filter(t => !t.completed && (t.assignee || '').toLowerCase() === currentTaskExecFilter.toLowerCase()).length;
+          
+          bannerText.innerHTML = `Active PRO: <strong>${escapeHtml(currentTaskExecFilter)}</strong>${phoneText} (${pendingCount} pending)`;
+          banner.style.display = 'flex';
+          if (assignBtnLabel) assignBtnLabel.textContent = `➕ Assign to ${escapeHtml(currentTaskExecFilter)}`;
+        } else {
+          banner.style.display = 'none';
+          if (assignBtnLabel) assignBtnLabel.textContent = '➕ Assign Task';
+        }
+      }
+
+      function updateTaskExecBanner() {
+        const banner = document.getElementById('taskCurrentExecDisplay');
+        if (banner) {
+          const name = settings.repName || 'Field Executive';
+          const empId = settings.repId ? ` (${settings.repId})` : '';
+          banner.textContent = `Assigned to: ${name}${empId}`;
+        }
+      }
+
+      function loadExecutiveTasks() {
+        try {
+          const stored = localStorage.getItem(STORAGE_KEYS.EXECUTIVE_TASKS) || localStorage.getItem('pro_tracker_executive_tasks_v1');
+          if (stored) {
+            executiveTasks = JSON.parse(stored);
+          } else {
+            const todayStr = getTodayDateString();
+            executiveTasks = [
+              {
+                id: 'task_' + Date.now() + '_1',
+                title: 'Review assigned field deliverables & connect with team coordinator',
+                category: 'General Deliverable',
+                assignee: settings.repName || 'Field Executive',
+                assigneeId: settings.repId || '',
+                phone: settings.reportingWhatsApp || '',
+                entityName: 'District Operations Desk',
+                dueDate: todayStr,
+                dueTime: '17:00',
+                priority: 'High',
+                notes: 'Tasks are assigned by admin via Google Sheets "Tasks" sheet. Tap Sync Tasks to refresh.',
+                completed: false,
+                completedAt: null,
+                createdAt: new Date().toISOString()
+              }
+            ];
+            saveExecutiveTasks();
+          }
+        } catch (e) {
+          console.warn('Error loading executive tasks', e);
+          executiveTasks = [];
+        }
+
+        // Filter to only tasks assigned to the current PRO
+        const myName = (settings.repName || '').trim().toLowerCase();
+        const myId = (settings.repId || '').trim().toLowerCase();
+        if (myName || myId) {
+          executiveTasks = executiveTasks.filter(t => {
+            const a = (t.assignee || '').trim().toLowerCase();
+            const aId = (t.assigneeId || '').trim().toLowerCase();
+            if (a === 'all' || a === 'team' || a === 'everyone') return true;
+            if (myName && (a === myName || a.includes(myName) || myName.includes(a))) return true;
+            if (myId && aId && aId === myId) return true;
+            return false;
+          });
+        }
+
+        updateTaskExecBanner();
+        renderExecutiveTasks();
+        updateNavBadges();
+      }
+
+      function saveExecutiveTasks() {
+        try {
+          localStorage.setItem(STORAGE_KEYS.EXECUTIVE_TASKS, JSON.stringify(executiveTasks));
+        } catch (e) {
+          console.warn('Error saving executive tasks', e);
+        }
+        updateTaskExecBanner();
+        renderExecutiveTasks();
+        updateNavBadges();
+      }
+
+      // Fetch Tasks from Google Sheets
+      async function fetchTasksFromSheet(quiet = false) {
+        const url = settings.webhookUrl || (webhookUrlInput ? webhookUrlInput.value.trim() : '');
+        if (!url || !url.startsWith('http')) {
+          if (!quiet) showToast('Please configure Google Sheets Web App URL in Settings first.', 'warning');
+          return;
+        }
+
+        const syncIcon = document.getElementById('syncTasksIcon');
+        const syncText = document.getElementById('syncTasksBtnText');
+        if (syncIcon) syncIcon.textContent = '⏳';
+        if (syncText) syncText.textContent = 'Syncing...';
+
+        try {
+          const currentRepName = (settings.repName || '').trim();
+          const currentRepId = (settings.repId || '').trim();
+          let fetched = null;
+          let fetchErrorMsg = '';
+
+          // 1. Try GET first (fast, follows 302 redirects with CORS)
+          try {
+            const getUrl = url + (url.includes('?') ? '&' : '?') +
+              'action=get_tasks&rep_name=' + encodeURIComponent(currentRepName) +
+              '&rep_id=' + encodeURIComponent(currentRepId) +
+              '&_t=' + Date.now();
+            const resp = await fetch(getUrl, {
+              method: 'GET',
+              headers: { 'Accept': 'application/json' },
+              cache: 'no-store'
+            });
+            if (resp.ok) {
+              const res = await resp.json();
+              if (res && res.status === 'success' && Array.isArray(res.tasks)) {
+                fetched = res.tasks;
+              } else if (res && res.status === 'error') {
+                fetchErrorMsg = res.message || 'Google Sheet returned error';
+              }
+            } else {
+              fetchErrorMsg = `HTTP ${resp.status} ${resp.statusText}`;
+            }
+          } catch (eGet) {
+            console.warn('GET get_tasks error, trying POST fallback:', eGet);
+            fetchErrorMsg = eGet.message || 'Network error on GET';
+          }
+
+          // 2. Fallback to POST
+          if (!fetched) {
+            try {
+              const resp = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify({
+                  action: 'get_tasks',
+                  rep_name: currentRepName,
+                  rep_id: currentRepId,
+                  _t: Date.now()
+                })
+              });
+              if (resp.ok) {
+                const res = await resp.json();
+                if (res && res.status === 'success' && Array.isArray(res.tasks)) {
+                  fetched = res.tasks;
+                } else if (res && res.status === 'error') {
+                  fetchErrorMsg = res.message || fetchErrorMsg;
+                }
+              }
+            } catch (ePost) {
+              console.warn('POST get_tasks fallback error:', ePost);
+              fetchErrorMsg = ePost.message || fetchErrorMsg;
+            }
+          }
+
+          if (Array.isArray(fetched)) {
+            // Map and filter strictly to the active executive
+            const mapped = fetched.map(st => {
+              const completed = (st.status || '').toLowerCase() === 'completed' || (st.completed === true);
+              return {
+                id: st.id || st.task_id || ('task_row_' + st.sheet_row) || ('task_' + Date.now()),
+                sheet_row: st.sheet_row,
+                title: st.title || st.task_title || 'General Task',
+                category: st.category || 'General Deliverable',
+                assignee: st.assignee || st.executive_name || currentRepName || 'Field Executive',
+                assigneeId: st.assigneeId || st.executive_id || '',
+                phone: st.phone || st.contact_phone || '',
+                entityName: st.entityName || st.entity || st.doctor_clinic || '',
+                dueDate: st.dueDate || st.due_date || getTodayDateString(),
+                dueTime: st.dueTime || st.due_time || '18:00',
+                priority: st.priority || 'Medium',
+                notes: st.notes || st.instructions || '',
+                completed: completed,
+                completedAt: st.completedAt || st.completed_at || (completed ? new Date().toISOString() : null)
+              };
+            });
+
+            // Filter to only tasks assigned to the logged-in PRO
+            const myName = currentRepName.toLowerCase();
+            const myId = currentRepId.toLowerCase();
+
+            const myTasks = mapped.filter(t => {
+              if (!myName && !myId) return true;
+              const a = (t.assignee || '').trim().toLowerCase();
+              const aId = (t.assigneeId || '').trim().toLowerCase();
+              if (a === 'all' || a === 'team' || a === 'everyone') return true;
+              if (myName && (a === myName || a.includes(myName) || myName.includes(a))) return true;
+              if (myId && aId && aId === myId) return true;
+              return false;
+            });
+
+            executiveTasks = myTasks;
+            saveExecutiveTasks();
+            renderExecutiveTasks();
+            updateNavBadges();
+
+            if (!quiet) {
+              showToast(`✓ Synced ${executiveTasks.length} task${executiveTasks.length === 1 ? '' : 's'} assigned to ${currentRepName || 'you'}`, 'success');
+            }
+          } else {
+            if (!quiet) {
+              const errDetail = fetchErrorMsg ? `: ${fetchErrorMsg}` : '. Check if "Tasks" sheet exists in Google Sheets.';
+              showToast('Could not fetch tasks from Google Sheet' + errDetail, 'warning');
+            }
+          }
+        } catch (err) {
+          console.error('Error in fetchTasksFromSheet:', err);
+          if (!quiet) showToast('Failed to sync tasks: ' + err.message, 'error');
+        } finally {
+          if (syncIcon) syncIcon.textContent = '🔄';
+          if (syncText) syncText.textContent = 'Sync Tasks';
+        }
+      }
+
+      // Sync Task Completion Status back to Google Sheets
+      async function syncTaskStatusToSheet(task) {
+        const url = settings.webhookUrl || (webhookUrlInput ? webhookUrlInput.value.trim() : '');
+        if (!url || !url.startsWith('http')) return;
+
+        try {
+          await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({
+              action: 'update_task_status',
+              task_id: task.id,
+              sheet_row: task.sheet_row || null,
+              status: task.completed ? 'Completed' : 'Pending',
+              completed_at: task.completedAt || '',
+              rep_name: settings.repName || '',
+              rep_id: settings.repId || ''
+            })
+          });
+        } catch (e) {
+          console.warn('Could not sync task status to Google Sheet:', e);
+        }
+      }
+
+      function getTaskDeadlineInfo(task) {
+        if (task.completed) {
+          let completedDateStr = '';
+          if (task.completedAt) {
+            try {
+              const d = new Date(task.completedAt);
+              completedDateStr = d.toLocaleDateString('en-IN', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+            } catch (e) {}
+          }
+          return {
+            status: 'completed',
+            label: 'Completed' + (completedDateStr ? ' on ' + completedDateStr : ''),
+            badgeClass: 'task-due-completed',
+            isOverdue: false,
+            isDueToday: false
+          };
+        }
+
+        const now = new Date();
+        const todayStr = getTodayDateString();
+        const timeStr = task.dueTime || '23:59';
+        const dueDateTime = new Date(`${task.dueDate}T${timeStr}:00`);
+        const diffMs = dueDateTime.getTime() - now.getTime();
+        const isSameDay = task.dueDate === todayStr;
+
+        if (isNaN(dueDateTime.getTime())) {
+          return {
+            status: 'pending',
+            label: `Due ${task.dueDate}`,
+            badgeClass: 'task-due-normal',
+            isOverdue: false,
+            isDueToday: isSameDay
+          };
+        }
+
+        if (diffMs < 0) {
+          const overdueMinutes = Math.floor(Math.abs(diffMs) / (1000 * 60));
+          const overdueHours = Math.floor(overdueMinutes / 60);
+          const overdueDays = Math.floor(overdueHours / 24);
+          let overdueText = '';
+          if (overdueDays > 0) {
+            overdueText = `Overdue by ${overdueDays}d ${overdueHours % 24}h`;
+          } else if (overdueHours > 0) {
+            overdueText = `Overdue by ${overdueHours}h ${overdueMinutes % 60}m`;
+          } else {
+            overdueText = `Overdue by ${Math.max(1, overdueMinutes)}m`;
+          }
+
+          return {
+            status: 'overdue',
+            label: `⚠️ ${overdueText}`,
+            badgeClass: 'task-due-overdue',
+            isOverdue: true,
+            isDueToday: isSameDay
+          };
+        }
+
+        if (isSameDay) {
+          const leftMinutes = Math.floor(diffMs / (1000 * 60));
+          const leftHours = Math.floor(leftMinutes / 60);
+          let leftText = '';
+          if (leftHours > 0) {
+            leftText = `in ${leftHours}h ${leftMinutes % 60}m`;
+          } else {
+            leftText = `in ${Math.max(1, leftMinutes)}m`;
+          }
+
+          let timeFormatted = task.dueTime || '';
+          if (timeFormatted) {
+            try {
+              const [h, m] = timeFormatted.split(':');
+              const hour = parseInt(h, 10);
+              const ampm = hour >= 12 ? 'PM' : 'AM';
+              const formattedHour = hour % 12 || 12;
+              timeFormatted = `at ${formattedHour}:${m} ${ampm}`;
+            } catch (e) {}
+          }
+
+          return {
+            status: 'today',
+            label: `⏳ Due Today ${timeFormatted} (${leftText})`,
+            badgeClass: 'task-due-today',
+            isOverdue: false,
+            isDueToday: true
+          };
+        }
+
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        const tomorrowStr = tomorrow.toISOString().split('T')[0];
+        if (task.dueDate === tomorrowStr) {
+          return {
+            status: 'tomorrow',
+            label: `📅 Due Tomorrow (${task.dueTime || 'by EOD'})`,
+            badgeClass: 'task-due-normal',
+            isOverdue: false,
+            isDueToday: false
+          };
+        }
+
+        try {
+          const parts = task.dueDate.split('-');
+          const formatted = new Date(parts[0], parts[1] - 1, parts[2]).toLocaleDateString('en-IN', {
+            month: 'short',
+            day: 'numeric'
+          });
+          return {
+            status: 'upcoming',
+            label: `📅 Due ${formatted} (${task.dueTime || 'EOD'})`,
+            badgeClass: 'task-due-normal',
+            isOverdue: false,
+            isDueToday: false
+          };
+        } catch (e) {
+          return {
+            status: 'upcoming',
+            label: `Due ${task.dueDate}`,
+            badgeClass: 'task-due-normal',
+            isOverdue: false,
+            isDueToday: false
+          };
+        }
+      }
+
+      function getCategoryBadgeClass(category) {
+        const cat = (category || '').toLowerCase();
+        if (cat.includes('marketing')) return 'task-cat-marketing';
+        if (cat.includes('procurement') || cat.includes('equipment')) return 'task-cat-procurement';
+        if (cat.includes('admin') || cat.includes('hospital')) return 'task-cat-admin';
+        if (cat.includes('sample') || cat.includes('diagnostic')) return 'task-cat-sample';
+        if (cat.includes('doctor')) return 'task-cat-doctor';
+        if (cat.includes('competitor')) return 'task-cat-competitor';
+        return 'task-cat-general';
+      }
+
+      function populateTaskAssigneeSelect(preselected = '') {
+        const select = document.getElementById('taskAssigneeSelect');
+        if (!select) return;
+
+        let options = '';
+        registeredPros.forEach(p => {
+          const isSel = preselected && p.name.toLowerCase() === preselected.toLowerCase();
+          options += `<option value="${escapeHtml(p.name)}"${isSel ? ' selected' : ''}>👤 ${escapeHtml(p.name)}${p.phone ? ' (' + p.phone + ')' : ''}</option>`;
+        });
+        options += '<option value="__custom__">➕ Type / Enter New PRO...</option>';
+        select.innerHTML = options;
+      }
+
+      function populateTaskDoctorSelect() {
+        const datalist = document.getElementById('taskEntityDatalist');
+        if (!datalist) return;
+        
+        let html = '';
+        if (Array.isArray(doctors) && doctors.length > 0) {
+          const sorted = [...doctors].sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+          sorted.slice(0, 50).forEach(d => {
+            const clinicInfo = d.clinic ? ` @ ${d.clinic}` : '';
+            html += `<option value="Dr. ${escapeHtml(d.name)}${clinicInfo}">`;
+          });
+        }
+        html += '<option value="MedTech Diagnostic Equipment Ltd">';
+        html += '<option value="Siemens Healthineers Support">';
+        html += '<option value="Apollo Hospitals Purchase Dept">';
+        html += '<option value="City Central Diagnostic Laboratory">';
+        datalist.innerHTML = html;
+      }
+
+      function renderExecutiveTasks() {
+        const listEl = document.getElementById('executiveTasksList');
+        if (!listEl) return;
+
+        const totalCount = executiveTasks.length;
+        const pendingCount = executiveTasks.filter(t => !t.completed).length;
+        const completedCount = executiveTasks.filter(t => t.completed).length;
+        
+        let overdueCount = 0;
+        let dueTodayCount = 0;
+
+        const tasksWithDeadline = executiveTasks.map(t => {
+          const dl = getTaskDeadlineInfo(t);
+          if (!t.completed) {
+            if (dl.isOverdue) overdueCount++;
+            else if (dl.isDueToday) dueTodayCount++;
+          }
+          return { task: t, deadline: dl };
+        });
+
+        // Filter counts
+        const elAll = document.getElementById('taskCountAll');
+        const elPending = document.getElementById('taskCountPending');
+        const elToday = document.getElementById('taskCountToday');
+        const elOverdue = document.getElementById('taskCountOverdue');
+        const elCompleted = document.getElementById('taskCountCompleted');
+
+        if (elAll) elAll.textContent = totalCount;
+        if (elPending) elPending.textContent = pendingCount;
+        if (elToday) elToday.textContent = dueTodayCount;
+        if (elOverdue) elOverdue.textContent = overdueCount;
+        if (elCompleted) elCompleted.textContent = completedCount;
+
+        // Reminder alert strip
+        const alertStrip = document.getElementById('tasksReminderAlertStrip');
+        const alertText = document.getElementById('tasksReminderAlertText');
+        if (alertStrip && alertText) {
+          const attentionCount = overdueCount + dueTodayCount;
+          if (attentionCount > 0) {
+            let msg = '';
+            if (overdueCount > 0 && dueTodayCount > 0) {
+              msg = `${attentionCount} PRO tasks require attention (${overdueCount} overdue, ${dueTodayCount} due today)`;
+            } else if (overdueCount > 0) {
+              msg = `${overdueCount} task${overdueCount > 1 ? 's are' : ' is'} OVERDUE! Remind PROs immediately.`;
+            } else {
+              msg = `${dueTodayCount} task${dueTodayCount > 1 ? 's are' : ' is'} due today. Ensure timely completion.`;
+            }
+            alertText.textContent = msg;
+            alertStrip.style.display = 'flex';
+          } else {
+            alertStrip.style.display = 'none';
+          }
+        }
+
+        // Apply filters
+        let filtered = tasksWithDeadline.filter(item => {
+          // Status filter
+          if (currentTaskFilter === 'pending' && item.task.completed) return false;
+          if (currentTaskFilter === 'today' && (item.task.completed || !item.deadline.isDueToday)) return false;
+          if (currentTaskFilter === 'overdue' && (item.task.completed || !item.deadline.isOverdue)) return false;
+          if (currentTaskFilter === 'completed' && !item.task.completed) return false;
+
+          // PRO filter
+          if (currentTaskExecFilter !== 'all') {
+            if ((item.task.assignee || '').trim().toLowerCase() !== currentTaskExecFilter.toLowerCase()) {
+              return false;
+            }
+          }
+
+          // Category filter
+          if (currentTaskCategoryFilter !== 'all') {
+            if ((item.task.category || 'General Deliverable').toLowerCase() !== currentTaskCategoryFilter.toLowerCase()) {
+              return false;
+            }
+          }
+
+          return true;
+        });
+
+        // Sort: Overdue first, then due today, then pending, completed at bottom
+        filtered.sort((a, b) => {
+          if (a.task.completed !== b.task.completed) {
+            return a.task.completed ? 1 : -1;
+          }
+          if (a.deadline.isOverdue !== b.deadline.isOverdue) {
+            return a.deadline.isOverdue ? -1 : 1;
+          }
+          const timeA = new Date(`${a.task.dueDate}T${a.task.dueTime || '23:59'}:00`).getTime();
+          const timeB = new Date(`${b.task.dueDate}T${b.task.dueTime || '23:59'}:00`).getTime();
+          return timeA - timeB;
+        });
+
+        if (filtered.length === 0) {
+          listEl.innerHTML = `
+            <div style="text-align: center; padding: 26px 14px; background: #f8fafc; border: 1.5px dashed #cbd5e1; border-radius: 10px; color: var(--slate-500);">
+              <div style="font-size: 1.8rem; margin-bottom: 6px;">📋</div>
+              <div style="font-weight: 800; font-size: 0.88rem; color: var(--slate-700);">No tasks found for ${escapeHtml(settings.repName || 'you')}</div>
+              <div style="font-size: 0.73rem; margin-top: 4px; color: var(--slate-500); max-width: 320px; margin-left: auto; margin-right: auto; line-height: 1.4;">
+                Tasks are assigned by management in Google Sheets &quot;Tasks&quot; page. Tap <strong>Check for New Tasks</strong> to refresh.
+              </div>
+              <button type="button" class="pill-btn-action sync-tasks-now-btn" style="margin-top: 10px; background: #2563eb; color: #fff; border-color: #2563eb; font-size: 0.74rem; padding: 6px 14px; font-weight: 800; display: inline-flex; align-items: center; gap: 5px;">
+                <span>🔄</span> <span>Check for New Tasks</span>
+              </button>
+            </div>
+          `;
+          const syncNowBtn = listEl.querySelector('.sync-tasks-now-btn');
+          if (syncNowBtn) {
+            syncNowBtn.addEventListener('click', () => fetchTasksFromSheet(false));
+          }
+          return;
+        }
+
+        let html = '<div style="display: flex; flex-direction: column; gap: 8px;">';
+        filtered.forEach(({ task, deadline }) => {
+          const priorityLower = (task.priority || 'medium').toLowerCase();
+          const catClass = getCategoryBadgeClass(task.category);
+          const entityDisplay = task.entityName || task.doctorName || '';
+
+          html += `
+            <div class="task-item-card ${deadline.isOverdue ? 'overdue' : (deadline.isDueToday ? 'due-today' : '')} ${task.completed ? 'completed' : ''}" id="task-card-${task.id}" style="background: #ffffff; border: 1.5px solid ${deadline.isOverdue ? '#fca5a5' : (deadline.isDueToday ? '#fde68a' : '#e2e8f0')}; border-radius: 10px; padding: 10px 12px; transition: all 0.2s ease;">
+              <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 8px;">
+                <div style="display: flex; align-items: flex-start; gap: 10px; flex: 1; min-width: 0;">
+                  <!-- Checkbox Toggle -->
+                  <button type="button" class="task-checkbox-toggle" data-task-id="${task.id}" title="${task.completed ? 'Mark as pending' : 'Mark as completed'}" style="margin-top: 2px; width: 22px; height: 22px; border-radius: 6px; border: 2px solid ${task.completed ? '#10b981' : '#cbd5e1'}; background: ${task.completed ? '#10b981' : '#ffffff'}; color: #ffffff; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; font-size: 0.75rem; font-weight: 900; transition: all 0.15s ease;">
+                    ${task.completed ? '✓' : ''}
+                  </button>
+                  <div style="flex: 1; min-width: 0;">
+                    <!-- Category, Priority & Timeline Tags -->
+                    <div style="display: flex; align-items: center; gap: 5px; flex-wrap: wrap; margin-bottom: 4px;">
+                      <span class="task-cat-badge ${catClass}">
+                        ${escapeHtml(task.category || 'General Deliverable')}
+                      </span>
+                      <span class="task-priority-${priorityLower}" style="font-size: 0.65rem; font-weight: 800; padding: 2px 7px; border-radius: 12px; border: 1px solid; text-transform: uppercase;">
+                        ${task.priority || 'Medium'}
+                      </span>
+                      <span class="task-due-badge ${deadline.badgeClass}" style="font-size: 0.68rem; font-weight: 700; padding: 2px 8px; border-radius: 12px;">
+                        ${deadline.label}
+                      </span>
+                    </div>
+
+                    <!-- Title -->
+                    <h4 style="font-size: 0.88rem; font-weight: 800; color: var(--slate-900); margin: 0 0 4px; line-height: 1.3; ${task.completed ? 'text-decoration: line-through; opacity: 0.7;' : ''}">
+                      ${escapeHtml(task.title)}
+                    </h4>
+
+                    <!-- PRO & Associated Entity -->
+                    <div style="display: flex; align-items: center; gap: 10px; font-size: 0.72rem; color: var(--slate-600); flex-wrap: wrap; margin-bottom: 3px;">
+                      <span>👤 Assigned: <strong>${escapeHtml(task.assignee || 'Field Executive')}</strong></span>
+                      ${entityDisplay ? `<span>🏢 Associated: <strong>${escapeHtml(entityDisplay)}</strong></span>` : ''}
+                      ${task.phone ? `<span>📱 <a href="tel:${escapeHtml(task.phone)}" style="color: #0284c7; text-decoration: none; font-weight: 700;">${escapeHtml(task.phone)}</a></span>` : ''}
+                    </div>
+
+                    <!-- Instructions -->
+                    ${task.notes ? `<div style="font-size: 0.71rem; color: var(--slate-600); background: #f8fafc; border-left: 2.5px solid #cbd5e1; padding: 4px 8px; margin: 4px 0 0; border-radius: 0 4px 4px 0; line-height: 1.35;">${escapeHtml(task.notes)}</div>` : ''}
+                  </div>
+                </div>
+
+                <!-- Actions: 1-Tap WhatsApp Status Update to Manager -->
+                <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0;">
+                  <button type="button" class="btn-task-wa" data-task-id="${task.id}" title="Send WhatsApp Status Update to Manager" style="background: #25d366; color: #ffffff; border: 1px solid #16a34a; font-size: 0.68rem; padding: 4px 8px; border-radius: 6px; font-weight: 800; display: flex; align-items: center; gap: 4px; cursor: pointer; box-shadow: 0 1px 2px rgba(0,0,0,0.08);">
+                    <span>💬</span> <span>Update</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+        html += '</div>';
+        listEl.innerHTML = html;
+
+        // Bind events
+        listEl.querySelectorAll('.task-checkbox-toggle').forEach(btn => {
+          btn.addEventListener('click', () => toggleTaskComplete(btn.getAttribute('data-task-id')));
+        });
+        listEl.querySelectorAll('.btn-task-wa').forEach(btn => {
+          btn.addEventListener('click', () => sendTaskWhatsAppUpdate(btn.getAttribute('data-task-id')));
+        });
+      }
+
+      function toggleTaskComplete(taskId) {
+        const task = executiveTasks.find(t => t.id === taskId);
+        if (!task) return;
+        vibrate(35);
+        task.completed = !task.completed;
+        task.completedAt = task.completed ? new Date().toISOString() : null;
+        saveExecutiveTasks();
+        showToast(task.completed ? '🎉 Task marked completed!' : 'Task returned to pending', 'normal');
+        syncTaskStatusToSheet(task);
+      }
+
+      function sendTaskWhatsAppReminder(taskId) {
+        sendTaskWhatsAppUpdate(taskId);
+      }
+
+      function sendTaskWhatsAppUpdate(taskId) {
+        const task = executiveTasks.find(t => t.id === taskId);
+        if (!task) return;
+        vibrate(25);
+
+        const repName = settings.repName || 'Field Executive';
+        const statusLabel = task.completed ? '✅ COMPLETED' : '⏳ IN PROGRESS / PENDING';
+        const deadline = getTaskDeadlineInfo(task);
+        const entity = task.entityName ? `🏢 *Associated:* ${task.entityName}\n` : '';
+
+        const msg = 
+`📋 *PRO TASK STATUS UPDATE*
+━━━━━━━━━━━━━━━━━━
+👤 *Executive:* ${repName} (${settings.repId || 'Field'})
+📌 *Task:* ${task.title}
+🏷️ *Category:* ${task.category || 'General Deliverable'}
+⚡ *Priority:* ${task.priority || 'Medium'}
+${entity}📅 *Timeline:* ${task.dueDate} ${task.dueTime || ''} (${deadline.label})
+📊 *Current Status:* ${statusLabel}
+${task.completed && task.completedAt ? `🕒 *Completed At:* ${new Date(task.completedAt).toLocaleString('en-IN')}\n` : ''}${task.notes ? `📝 *Notes:* ${task.notes}\n` : ''}
+Sent from PRO Tracker`;
+
+        const waTarget = settings.reportingWhatsApp ? settings.reportingWhatsApp.replace(/[^0-9]/g, '') : '';
+        const waUrl = waTarget 
+          ? `https://api.whatsapp.com/send?phone=${waTarget}&text=${encodeURIComponent(msg)}`
+          : `https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`;
+
+        showToast('Opening WhatsApp with Task Update...', 'normal');
+        window.open(waUrl, '_blank');
+      }
+
+      function deleteTask(taskId) {
+        vibrate(30);
+        executiveTasks = executiveTasks.filter(t => t.id !== taskId);
+        saveExecutiveTasks();
+        showToast('Task removed', 'normal');
+      }
+
+      function openAssignTaskModal(editTaskId = null) {
+        vibrate(25);
+        const modal = document.getElementById('assignTaskModal');
+        const form = document.getElementById('assignTaskForm');
+        const titleEl = document.getElementById('assignTaskModalTitle');
+        const idInput = document.getElementById('editTaskId');
+        const catSelect = document.getElementById('taskCategorySelect');
+        const titleInput = document.getElementById('taskTitleInput');
+        const assigneeSelect = document.getElementById('taskAssigneeSelect');
+        const assigneeInput = document.getElementById('taskAssigneeInput');
+        const phoneInput = document.getElementById('taskPhoneInput');
+        const entityInput = document.getElementById('taskEntityInput');
+        const dateInput = document.getElementById('taskDueDateInput');
+        const timeInput = document.getElementById('taskDueTimeInput');
+        const prioritySelect = document.getElementById('taskPrioritySelect');
+        const notesInput = document.getElementById('taskNotesInput');
+
+        if (!modal) return;
+        populateTaskDoctorSelect();
+
+        const todayStr = getTodayDateString();
+        if (dateInput) dateInput.min = todayStr;
+
+        // Reset inputs
+        if (assigneeInput) assigneeInput.style.display = 'none';
+        if (assigneeSelect) assigneeSelect.style.display = 'block';
+
+        if (editTaskId) {
+          const task = executiveTasks.find(t => t.id === editTaskId);
+          if (task) {
+            if (titleEl) titleEl.textContent = 'Edit PRO Task';
+            if (idInput) idInput.value = task.id;
+            if (catSelect) catSelect.value = task.category || 'General Deliverable';
+            if (titleInput) titleInput.value = task.title || '';
+            
+            populateTaskAssigneeSelect(task.assignee);
+            if (assigneeSelect) assigneeSelect.value = task.assignee || '';
+            if (phoneInput) phoneInput.value = task.phone || '';
+            if (entityInput) entityInput.value = task.entityName || task.doctorName || '';
+            if (dateInput) dateInput.value = task.dueDate || todayStr;
+            if (timeInput) timeInput.value = task.dueTime || '17:00';
+            if (prioritySelect) prioritySelect.value = task.priority || 'Medium';
+            if (notesInput) notesInput.value = task.notes || '';
+          }
+        } else {
+          if (titleEl) titleEl.textContent = 'Assign PRO Task';
+          if (form) form.reset();
+          if (idInput) idInput.value = '';
+          
+          const defaultAssignee = currentTaskExecFilter !== 'all' ? currentTaskExecFilter : (settings.repName || 'Field Executive');
+          populateTaskAssigneeSelect(defaultAssignee);
+          if (assigneeSelect) assigneeSelect.value = defaultAssignee;
+
+          // Auto-fill phone for selected PRO
+          const matchedPro = registeredPros.find(p => p.name.toLowerCase() === defaultAssignee.toLowerCase());
+          if (phoneInput) phoneInput.value = matchedPro && matchedPro.phone ? matchedPro.phone : (settings.reportingWhatsApp || '');
+
+          if (dateInput) dateInput.value = todayStr;
+          if (timeInput) timeInput.value = '17:00';
+          if (prioritySelect) prioritySelect.value = 'Medium';
+          if (catSelect) catSelect.value = 'Marketing Study';
+        }
+
+        modal.style.display = 'flex';
+        modal.classList.add('show');
+        setTimeout(() => {
+          if (titleInput) titleInput.focus();
+        }, 120);
+      }
+
+      function closeAssignTaskModal() {
+        const modal = document.getElementById('assignTaskModal');
+        if (modal) {
+          modal.classList.remove('show');
+          setTimeout(() => {
+            modal.style.display = 'none';
+          }, 200);
+        }
+      }
+
+      function handleSaveTask(e) {
+        if (e && e.preventDefault) e.preventDefault();
+        vibrate(35);
+
+        const idInput = document.getElementById('editTaskId');
+        const catSelect = document.getElementById('taskCategorySelect');
+        const titleInput = document.getElementById('taskTitleInput');
+        const assigneeSelect = document.getElementById('taskAssigneeSelect');
+        const assigneeInput = document.getElementById('taskAssigneeInput');
+        const phoneInput = document.getElementById('taskPhoneInput');
+        const entityInput = document.getElementById('taskEntityInput');
+        const dateInput = document.getElementById('taskDueDateInput');
+        const timeInput = document.getElementById('taskDueTimeInput');
+        const prioritySelect = document.getElementById('taskPrioritySelect');
+        const notesInput = document.getElementById('taskNotesInput');
+
+        const title = (titleInput ? titleInput.value : '').trim();
+        const category = (catSelect ? catSelect.value : 'General Deliverable');
+        
+        let assignee = '';
+        if (assigneeInput && assigneeInput.style.display !== 'none' && assigneeInput.value.trim()) {
+          assignee = assigneeInput.value.trim();
+        } else if (assigneeSelect) {
+          assignee = assigneeSelect.value === '__custom__' ? (assigneeInput ? assigneeInput.value.trim() : '') : assigneeSelect.value;
+        }
+        assignee = assignee || (settings.repName || 'Field Executive');
+
+        const phone = (phoneInput ? phoneInput.value.trim() : '');
+        const entityName = (entityInput ? entityInput.value.trim() : '');
+        const dueDate = (dateInput ? dateInput.value : '').trim();
+        const dueTime = (timeInput ? timeInput.value : '17:00');
+        const priority = (prioritySelect ? prioritySelect.value : 'Medium');
+        const notes = (notesInput ? notesInput.value.trim() : '');
+
+        if (!title) {
+          showToast('Please enter the task description', 'warning');
+          if (titleInput) titleInput.focus();
+          return;
+        }
+        if (!dueDate) {
+          showToast('Please select a deadline due date', 'warning');
+          if (dateInput) dateInput.focus();
+          return;
+        }
+
+        // Register PRO in directory if not present
+        registerNewPro(assignee, phone);
+
+        const editId = idInput ? idInput.value : '';
+        if (editId) {
+          const index = executiveTasks.findIndex(t => t.id === editId);
+          if (index !== -1) {
+            executiveTasks[index] = {
+              ...executiveTasks[index],
+              title,
+              category,
+              assignee,
+              phone,
+              entityName,
+              dueDate,
+              dueTime,
+              priority,
+              notes
+            };
+          }
+        } else {
+          const newTask = {
+            id: 'task_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5),
+            title,
+            category,
+            assignee,
+            phone,
+            entityName,
+            dueDate,
+            dueTime,
+            priority,
+            notes,
+            completed: false,
+            completedAt: null,
+            createdAt: new Date().toISOString()
+          };
+          executiveTasks.unshift(newTask);
+        }
+
+        saveExecutiveTasks();
+        closeAssignTaskModal();
+        showToast(editId ? 'PRO Task updated successfully' : 'Task assigned to ' + assignee + ' successfully', 'success');
+      }
+
+      function sendTaskWhatsAppReminder(taskId) {
+        const task = executiveTasks.find(t => t.id === taskId);
+        if (!task) return;
+        vibrate(30);
+
+        const deadline = getTaskDeadlineInfo(task);
+        let dueDisplay = task.dueDate;
+        try {
+          const parts = task.dueDate.split('-');
+          dueDisplay = new Date(parts[0], parts[1] - 1, parts[2]).toLocaleDateString('en-IN', {
+            weekday: 'short',
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric'
+          });
+        } catch(e) {}
+
+        const dueTimeDisplay = task.dueTime ? task.dueTime : 'End of Day';
+        const entityDisplay = task.entityName || task.doctorName || '';
+        const entityInfo = entityDisplay ? `\n🏢 *Associated Entity / Contact:* ${entityDisplay}` : '';
+        const notesInfo = task.notes ? `\n📝 *Scope & Instructions:* ${task.notes}` : '';
+        const statusDisplay = task.completed ? 'COMPLETED' : (deadline.isOverdue ? '⚠️ OVERDUE' : (deadline.isDueToday ? '⏳ DUE TODAY' : 'PENDING'));
+
+        const msg = 
+`*PRO TASK ASSIGNMENT & REMINDER* 📋
+-----------------------------------
+📌 *Task:* ${task.title}
+📂 *Category:* ${task.category || 'General Deliverable'}
+👤 *Assigned PRO:* ${task.assignee || 'Field Executive'}
+⏰ *Timeline Deadline:* ${dueDisplay} at ${dueTimeDisplay}
+⚡ *Status:* ${statusDisplay} (${deadline.label})
+🎯 *Priority:* ${task.priority || 'Medium'}${entityInfo}${notesInfo}
+-----------------------------------
+*Assigned By:* ${settings.repName || 'Operations Manager'} (${settings.repId || 'SD-101'})
+_Please confirm receipt and share progress once completed. Thank you!_`;
+
+        let phone = (task.phone || '').trim().replace(/[^0-9]/g, '');
+        if (!phone && settings.reportingWhatsApp) {
+          phone = settings.reportingWhatsApp.trim().replace(/[^0-9]/g, '');
+        }
+
+        let waUrl = '';
+        if (phone) {
+          if (phone.length === 10) phone = '91' + phone;
+          waUrl = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+        } else {
+          waUrl = `https://wa.me/?text=${encodeURIComponent(msg)}`;
+        }
+
+        showToast('Opening WhatsApp with PRO Task Reminder...', 'normal');
+        window.open(waUrl, '_blank');
+      }
+
+      function scrollToTasksCard() {
+        switchAppPage('pageTasksView');
+        const card = document.getElementById('executiveTasksCard');
+        if (card) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+
+
       function loadActivities() {
         try {
           const stored = localStorage.getItem(STORAGE_KEYS.ACTIVITIES) || localStorage.getItem('clariti_activities_v2') || localStorage.getItem('soorya_activities_v2');
@@ -10235,6 +12302,228 @@ function jsonResponse(obj) {
             }, 100);
           });
         }
+        
+        // Settings Tab Switcher Listeners
+        const tabBtnProfile = document.getElementById("tabBtnSettingsProfile");
+        const tabBtnDocs = document.getElementById("tabBtnSettingsDoctors");
+        const tabBtnAdv = document.getElementById("tabBtnSettingsAdvanced");
+        const unlockAdvBtn = document.getElementById("unlockAdvancedSettingsBtn");
+
+        if (tabBtnProfile) {
+          tabBtnProfile.addEventListener("click", () => switchSettingsTab("tab-settings-profile"));
+        }
+        if (tabBtnDocs) {
+          tabBtnDocs.addEventListener("click", () => switchSettingsTab("tab-settings-doctors"));
+        }
+        if (tabBtnAdv) {
+          tabBtnAdv.addEventListener("click", () => switchSettingsTab("tab-settings-advanced"));
+        }
+        if (unlockAdvBtn) {
+          unlockAdvBtn.addEventListener("click", () => unlockAdvancedSettings(false));
+        }
+
+        // Top-Level Multi-Page App Navigation Listeners
+        const navTabCalls = document.getElementById('navTabCalls');
+        const navTabPlanning = document.getElementById('navTabPlanning');
+        const navTabTasks = document.getElementById('navTabTasks');
+
+        if (navTabCalls) {
+          navTabCalls.addEventListener('click', () => switchAppPage('pageCallsView'));
+        }
+        if (navTabPlanning) {
+          navTabPlanning.addEventListener('click', () => switchAppPage('pagePlanningView'));
+        }
+        if (navTabTasks) {
+          navTabTasks.addEventListener('click', () => {
+            switchAppPage('pageTasksView');
+            if (typeof fetchTasksFromSheet === 'function') {
+              fetchTasksFromSheet(true);
+            }
+          });
+        }
+
+        const syncTasksFromSheetBtn = document.getElementById('syncTasksFromSheetBtn');
+        if (syncTasksFromSheetBtn) {
+          syncTasksFromSheetBtn.addEventListener('click', () => {
+            if (typeof fetchTasksFromSheet === 'function') {
+              fetchTasksFromSheet(false);
+            }
+          });
+        }
+
+        // Add PRO Modal Listeners
+        const addProModal = document.getElementById('addProModal');
+        const quickAddProBtn = document.getElementById('quickAddProBtn');
+        const closeAddProModalBtn = document.getElementById('closeAddProModalBtn');
+        const cancelAddProModalBtn = document.getElementById('cancelAddProModalBtn');
+        const addProForm = document.getElementById('addProForm');
+        const newProNameInput = document.getElementById('newProNameInput');
+        const newProPhoneInput = document.getElementById('newProPhoneInput');
+
+        function openAddProModal() {
+          vibrate(25);
+          if (addProForm) addProForm.reset();
+          if (addProModal) {
+            addProModal.style.display = 'flex';
+            addProModal.classList.add('show');
+            setTimeout(() => {
+              if (newProNameInput) newProNameInput.focus();
+            }, 120);
+          }
+        }
+
+        function closeAddProModal() {
+          if (addProModal) {
+            addProModal.classList.remove('show');
+            setTimeout(() => {
+              addProModal.style.display = 'none';
+            }, 200);
+          }
+        }
+
+        if (quickAddProBtn) {
+          quickAddProBtn.addEventListener('click', openAddProModal);
+        }
+        if (closeAddProModalBtn) {
+          closeAddProModalBtn.addEventListener('click', closeAddProModal);
+        }
+        if (cancelAddProModalBtn) {
+          cancelAddProModalBtn.addEventListener('click', closeAddProModal);
+        }
+        if (addProModal) {
+          addProModal.addEventListener('click', (e) => {
+            if (e.target === addProModal) closeAddProModal();
+          });
+        }
+        if (addProForm) {
+          addProForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            vibrate(30);
+            const name = (newProNameInput ? newProNameInput.value : '').trim();
+            const phone = (newProPhoneInput ? newProPhoneInput.value : '').trim();
+            if (!name) {
+              showToast('Please enter the PRO name', 'warning');
+              return;
+            }
+            registerNewPro(name, phone);
+            currentTaskExecFilter = name;
+            renderProSelectorBar();
+            renderExecutiveTasks();
+            closeAddProModal();
+            showToast('Registered PRO: ' + name, 'success');
+          });
+        }
+
+        // Active PRO Assign Button in banner
+        const activeProAssignBtn = document.getElementById('activeProAssignBtn');
+        if (activeProAssignBtn) {
+          activeProAssignBtn.addEventListener('click', () => {
+            openAssignTaskModal();
+          });
+        }
+
+        // Category Filter Select
+        const taskCatSelect = document.getElementById('taskCategoryFilterSelect');
+        if (taskCatSelect) {
+          taskCatSelect.addEventListener('change', () => {
+            currentTaskCategoryFilter = taskCatSelect.value || 'all';
+            renderExecutiveTasks();
+          });
+        }
+
+        // Assignee Select / Toggle in Modal
+        const assigneeSelect = document.getElementById('taskAssigneeSelect');
+        const assigneeInput = document.getElementById('taskAssigneeInput');
+        const toggleNewProBtn = document.getElementById('taskToggleNewProBtn');
+
+        if (assigneeSelect) {
+          assigneeSelect.addEventListener('change', () => {
+            if (assigneeSelect.value === '__custom__') {
+              if (assigneeInput) {
+                assigneeInput.style.display = 'block';
+                assigneeInput.focus();
+              }
+            } else {
+              if (assigneeInput) assigneeInput.style.display = 'none';
+              const matchedPro = registeredPros.find(p => p.name.toLowerCase() === assigneeSelect.value.toLowerCase());
+              const phoneInput = document.getElementById('taskPhoneInput');
+              if (phoneInput && matchedPro && matchedPro.phone) {
+                phoneInput.value = matchedPro.phone;
+              }
+            }
+          });
+        }
+
+        if (toggleNewProBtn) {
+          toggleNewProBtn.addEventListener('click', () => {
+            vibrate(20);
+            if (assigneeInput) {
+              const isHidden = assigneeInput.style.display === 'none';
+              assigneeInput.style.display = isHidden ? 'block' : 'none';
+              if (isHidden) {
+                assigneeInput.focus();
+                if (assigneeSelect) assigneeSelect.value = '__custom__';
+              } else {
+                if (assigneeSelect) assigneeSelect.value = settings.repName || 'Field Executive';
+              }
+            }
+          });
+        }
+
+        // PRO Tasks Modal & List Listeners
+        const openAssignTaskBtn = document.getElementById('openAssignTaskBtn');
+        if (openAssignTaskBtn) {
+          openAssignTaskBtn.addEventListener('click', () => openAssignTaskModal());
+        }
+
+        const closeAssignTaskModalBtn = document.getElementById('closeAssignTaskModalBtn');
+        if (closeAssignTaskModalBtn) {
+          closeAssignTaskModalBtn.addEventListener('click', closeAssignTaskModal);
+        }
+
+        const cancelTaskModalBtn = document.getElementById('cancelTaskModalBtn');
+        if (cancelTaskModalBtn) {
+          cancelTaskModalBtn.addEventListener('click', closeAssignTaskModal);
+        }
+
+        const assignTaskModal = document.getElementById('assignTaskModal');
+        if (assignTaskModal) {
+          assignTaskModal.addEventListener('click', (e) => {
+            if (e.target === assignTaskModal) closeAssignTaskModal();
+          });
+        }
+
+        const assignTaskForm = document.getElementById('assignTaskForm');
+        if (assignTaskForm) {
+          assignTaskForm.addEventListener('submit', handleSaveTask);
+        }
+
+        const taskAssignSelfBtn = document.getElementById('taskAssignSelfBtn');
+        if (taskAssignSelfBtn) {
+          taskAssignSelfBtn.addEventListener('click', () => {
+            vibrate(20);
+            populateTaskAssigneeSelect(settings.repName || 'Field Executive');
+            if (assigneeSelect) assigneeSelect.value = settings.repName || 'Field Executive';
+            if (assigneeInput) assigneeInput.style.display = 'none';
+            const phoneInput = document.getElementById('taskPhoneInput');
+            if (phoneInput && settings.reportingWhatsApp) {
+              phoneInput.value = settings.reportingWhatsApp;
+            }
+          });
+        }
+
+        // Executive Tasks Status Filter Pills
+        const taskFilterBtns = document.querySelectorAll('[data-task-filter]');
+        taskFilterBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            vibrate(20);
+            taskFilterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentTaskFilter = btn.getAttribute('data-task-filter') || 'all';
+            renderExecutiveTasks();
+          });
+        });
+
         settingsBtn.addEventListener('click', () => {
           vibrate(25);
           settingsModal.classList.add('show');
