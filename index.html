@@ -4058,7 +4058,7 @@
           <span id="tasksReminderAlertText">0 tasks need your attention</span>
         </div>
 
-        <!-- Category & Status Filters -->
+        <!-- Status Filters Bar -->
         <div style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px;">
           <!-- Status Filter Pills -->
           <div class="tasks-filters-bar" style="display: flex; gap: 4px; overflow-x: auto; padding-bottom: 2px;">
@@ -4068,25 +4068,9 @@
             <button type="button" class="tab-pill-btn" data-task-filter="overdue" id="taskFilterOverdue" style="color: #dc2626;">Overdue (<span id="taskCountOverdue">0</span>)</button>
             <button type="button" class="tab-pill-btn" data-task-filter="completed" id="taskFilterCompleted">Completed (<span id="taskCountCompleted">0</span>)</button>
           </div>
-
-          <!-- Category Filter Bar -->
-          <div style="display: flex; align-items: center; gap: 6px;">
-            <label for="taskCategoryFilterSelect" style="font-size: 0.70rem; font-weight: 700; color: var(--slate-600); white-space: nowrap;">
-              Category:
-            </label>
-            <select id="taskCategoryFilterSelect" class="text-input" style="font-size: 0.73rem; font-weight: 700; padding: 3px 6px; height: 28px; border-radius: 6px; flex: 1;">
-              <option value="all">All Categories</option>
-              <option value="Marketing Study">📊 Marketing Study &amp; Survey</option>
-              <option value="Equipment Procurement">📦 Equipment Procurement</option>
-              <option value="Hospital / Clinic Admin">🏢 Hospital &amp; Clinic Admin</option>
-              <option value="Sample & Diagnostic Report">🔬 Sample &amp; Report Liaison</option>
-              <option value="Doctor Follow-up">🤝 Doctor &amp; KOL Follow-up</option>
-              <option value="Competitor Analysis">💼 Competitor Analysis</option>
-              <option value="General Deliverable">📌 General Deliverable</option>
-            </select>
-            <!-- Hidden legacy select for backward compatibility -->
-            <select id="taskExecutiveFilterSelect" style="display: none;"><option value="all">All Executives</option></select>
-          </div>
+          <!-- Hidden legacy select for backward compatibility -->
+          <select id="taskExecutiveFilterSelect" style="display: none;"><option value="all">All Executives</option></select>
+          <select id="taskCategoryFilterSelect" style="display: none;"><option value="all">All</option></select>
         </div>
         <!-- Tasks Dynamic List -->
         <div id="executiveTasksList" style="min-height: 40px;">
@@ -4351,13 +4335,12 @@ var STANDARD_DOCTOR_HEADERS = [
   "Assigned PRO"
 ];
 
-// Standard Headers for Executive Tasks (Col A to Col M)
+// Standard Headers for Executive Tasks (Col A to Col L)
 var STANDARD_TASKS_HEADERS = [
   "Task ID",
   "Executive Name",
   "Executive ID",
   "Task Title",
-  "Category",
   "Entity / Doctor / Clinic",
   "Contact Phone",
   "Due Date",
@@ -4397,7 +4380,7 @@ function getTasksSheet(overrideName) {
 }
 
 function resolveTasksColMap(taskSheet) {
-  var lastCol = Math.max(taskSheet.getLastColumn(), 13);
+  var lastCol = Math.max(taskSheet.getLastColumn(), 12);
   var headerRow = [];
   if (taskSheet.getLastRow() >= 1) {
     headerRow = taskSheet.getRange(1, 1, 1, lastCol).getValues()[0];
@@ -4407,15 +4390,15 @@ function resolveTasksColMap(taskSheet) {
     assignee: 2,
     assigneeId: 3,
     title: 4,
-    category: 5,
-    entity: 6,
-    phone: 7,
-    dueDate: 8,
-    dueTime: 9,
-    priority: 10,
-    notes: 11,
-    status: 12,
-    completedAt: 13
+    category: -1,
+    entity: 5,
+    phone: 6,
+    dueDate: 7,
+    dueTime: 8,
+    priority: 9,
+    notes: 10,
+    status: 11,
+    completedAt: 12
   };
 
   for (var c = 0; c &lt; headerRow.length; c++) {
@@ -4766,7 +4749,7 @@ function handleRequest(data) {
         }
 
         var taskId = (row[colMap.id - 1] || "").toString().trim() || ("TSK-" + (i + 2));
-        var category = (row[colMap.category - 1] || "").toString().trim() || "General Deliverable";
+        var category = (colMap.category > 0 && row[colMap.category - 1]) ? row[colMap.category - 1].toString().trim() : "";
         var entity = (row[colMap.entity - 1] || "").toString().trim();
         var phone = (row[colMap.phone - 1] || "").toString().trim();
 
@@ -5713,19 +5696,8 @@ function jsonResponse(obj) {
         <form id="assignTaskForm" style="display: flex; flex-direction: column; gap: 10px;">
           <input type="hidden" id="editTaskId" />
 
-          <!-- Task Category (General: Marketing, Procurement, Admin, etc.) -->
-          <div class="form-group" style="margin-bottom: 0;">
-            <label class="form-label" for="taskCategorySelect">Task Category *</label>
-            <select id="taskCategorySelect" class="text-input" style="font-weight: 700; font-size: 0.82rem; padding: 7px 9px;">
-              <option value="Marketing Study">📊 Marketing Study &amp; Market Survey</option>
-              <option value="Equipment Procurement">📦 Equipment &amp; Supplies Procurement</option>
-              <option value="Hospital / Clinic Admin">🏢 Hospital &amp; Clinic Administration</option>
-              <option value="Sample & Diagnostic Report">🔬 Diagnostic Sample &amp; Report Liaison</option>
-              <option value="Doctor Follow-up">🤝 Doctor &amp; Key Opinion Leader Follow-up</option>
-              <option value="Competitor Analysis">💼 Competitor Intelligence &amp; Tariff Study</option>
-              <option value="General Deliverable" selected>📌 General Operational Deliverable</option>
-            </select>
-          </div>
+          <!-- Task Category (Removed from UI) -->
+          <select id="taskCategorySelect" style="display: none;"><option value="General Deliverable" selected>General Deliverable</option></select>
 
           <!-- Task Title / Action Item -->
           <div class="form-group" style="margin-bottom: 0;">
@@ -10184,13 +10156,6 @@ function jsonResponse(obj) {
             }
           }
 
-          // Category filter
-          if (currentTaskCategoryFilter !== 'all') {
-            if ((item.task.category || 'General Deliverable').toLowerCase() !== currentTaskCategoryFilter.toLowerCase()) {
-              return false;
-            }
-          }
-
           return true;
         });
 
@@ -10230,7 +10195,6 @@ function jsonResponse(obj) {
         let html = '<div style="display: flex; flex-direction: column; gap: 8px;">';
         filtered.forEach(({ task, deadline }) => {
           const priorityLower = (task.priority || 'medium').toLowerCase();
-          const catClass = getCategoryBadgeClass(task.category);
           const entityDisplay = task.entityName || task.doctorName || '';
 
           html += `
@@ -10242,11 +10206,8 @@ function jsonResponse(obj) {
                     ${task.completed ? '✓' : ''}
                   </button>
                   <div style="flex: 1; min-width: 0;">
-                    <!-- Category, Priority & Timeline Tags -->
+                    <!-- Priority & Timeline Tags -->
                     <div style="display: flex; align-items: center; gap: 5px; flex-wrap: wrap; margin-bottom: 4px;">
-                      <span class="task-cat-badge ${catClass}">
-                        ${escapeHtml(task.category || 'General Deliverable')}
-                      </span>
                       <span class="task-priority-${priorityLower}" style="font-size: 0.65rem; font-weight: 800; padding: 2px 7px; border-radius: 12px; border: 1px solid; text-transform: uppercase;">
                         ${task.priority || 'Medium'}
                       </span>
@@ -10324,7 +10285,6 @@ function jsonResponse(obj) {
 ━━━━━━━━━━━━━━━━━━
 👤 *Executive:* ${repName} (${settings.repId || 'Field'})
 📌 *Task:* ${task.title}
-🏷️ *Category:* ${task.category || 'General Deliverable'}
 ⚡ *Priority:* ${task.priority || 'Medium'}
 ${entity}📅 *Timeline:* ${task.dueDate} ${task.dueTime || ''} (${deadline.label})
 📊 *Current Status:* ${statusLabel}
@@ -12422,14 +12382,6 @@ _Please confirm receipt and share progress once completed. Thank you!_`;
           });
         }
 
-        // Category Filter Select
-        const taskCatSelect = document.getElementById('taskCategoryFilterSelect');
-        if (taskCatSelect) {
-          taskCatSelect.addEventListener('change', () => {
-            currentTaskCategoryFilter = taskCatSelect.value || 'all';
-            renderExecutiveTasks();
-          });
-        }
 
         // Assignee Select / Toggle in Modal
         const assigneeSelect = document.getElementById('taskAssigneeSelect');
